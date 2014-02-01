@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!-- org.dmd.wsdl.server.extended.WsdlDescription.dumpAsXML(WsdlDescription.java:34)--> 
+<description
+    xmlns:null= "http://www.w3.org/ns/wsdl"
+    xmlns="http://greath.example.com/2004/wsdl/resSvc"
+    xmlns="http://greath.example.com/2004/schemas/resSvc"
+    xmlns="http://www.w3.org/ns/wsdl/soap"
+    xmlns="http://www.w3.org/2003/05/soap-envelope"
+    xmlns="http://www.w3.org/ns/wsdl-extensions"
+  >

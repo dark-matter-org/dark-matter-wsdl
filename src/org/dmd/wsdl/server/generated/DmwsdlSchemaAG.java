@@ -34,12 +34,28 @@ import org.dmd.wsdl.shared.generated.dmo.DmwsdlDMSAG;
 public class DmwsdlSchemaAG extends SchemaDefinition {
 
     public static ClassDefinition _WsdlDefinition;
+    public static ClassDefinition _WsdlDescription;
+    public static ClassDefinition _WsdlInterface;
+    public static ClassDefinition _WsdlOperation;
+    public static ClassDefinition _WsdlService;
+    public static ClassDefinition _XmlElement;
     public static ClassDefinition _WsdlModule;
 
     public static AttributeDefinition _dependsOnWsdlModule;
     public static AttributeDefinition _definedInWsdlModule;
+    public static AttributeDefinition _nameSpace;
+    public static AttributeDefinition _targetNameSpace;
+    public static AttributeDefinition _serviceTitle;
+    public static AttributeDefinition _interface;
+    public static AttributeDefinition _operations;
+    public static AttributeDefinition _service;
+    public static AttributeDefinition _input;
+    public static AttributeDefinition _output;
+    public static AttributeDefinition _pattern;
+    public static AttributeDefinition _style;
 
 
+    public static ComplexTypeDefinition _NameSpaceReference;
 
 
 
@@ -105,6 +121,128 @@ public class DmwsdlSchemaAG extends SchemaDefinition {
             addClassDefList(_WsdlDefinition);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ClassDefinitionDMO _WsdlDescriptionOBJ = new ClassDefinitionDMO();
+            _WsdlDescription = new ClassDefinition(_WsdlDescriptionOBJ,DmwsdlDMSAG.__WsdlDescription);
+            _WsdlDescriptionOBJ.setName("WsdlDescription");
+            _WsdlDescriptionOBJ.setDmdID("-478497");
+            _WsdlDescriptionOBJ.setClassType("STRUCTURAL");
+            _WsdlDescriptionOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/classes.dmd");
+            _WsdlDescriptionOBJ.setLineNumber("29");
+            _WsdlDescriptionOBJ.addDescription("The WsdlDescription defines a web service.");
+            _WsdlDescriptionOBJ.setDerivedFrom("dmwsdl.WsdlDefinition");
+            _WsdlDescriptionOBJ.setIsNamedBy("meta.name");
+            _WsdlDescriptionOBJ.setUseWrapperType("EXTENDED");
+            _WsdlDescriptionOBJ.setDmtREFImport("org.dmd.wsdl.shared.generated.types.WsdlDescriptionREF");
+            _WsdlDescriptionOBJ.setDmwIteratorClass("WsdlDescriptionIterableDMW");
+            _WsdlDescriptionOBJ.addMay("dmwsdl.interface");
+            _WsdlDescriptionOBJ.addMay("dmwsdl.service");
+            _WsdlDescriptionOBJ.addMay("meta.description");
+            _WsdlDescriptionOBJ.addMust("meta.name");
+            _WsdlDescriptionOBJ.addMust("dmwsdl.nameSpace");
+            _WsdlDescriptionOBJ.addMust("dmwsdl.targetNameSpace");
+            _WsdlDescriptionOBJ.addMust("dmwsdl.serviceTitle");
+            _WsdlDescriptionOBJ.setDmwIteratorImport("org.dmd.wsdl.server.generated.dmw.WsdlDescriptionIterableDMW");
+            _WsdlDescriptionOBJ.setPartOfDefinitionModule("dmwsdl.WsdlModule");
+            _WsdlDescriptionOBJ.setDotName("dmwsdl.WsdlDescription.ClassDefinition");
+            _WsdlDescriptionOBJ.setNameAndTypeName("WsdlDescription.ClassDefinition");
+            _WsdlDescription.setDefinedIn(this);
+            addClassDefList(_WsdlDescription);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ClassDefinitionDMO _WsdlInterfaceOBJ = new ClassDefinitionDMO();
+            _WsdlInterface = new ClassDefinition(_WsdlInterfaceOBJ,DmwsdlDMSAG.__WsdlInterface);
+            _WsdlInterfaceOBJ.setName("WsdlInterface");
+            _WsdlInterfaceOBJ.setDmdID("-478496");
+            _WsdlInterfaceOBJ.setClassType("STRUCTURAL");
+            _WsdlInterfaceOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/classes.dmd");
+            _WsdlInterfaceOBJ.setLineNumber("43");
+            _WsdlInterfaceOBJ.addDescription("A WSDL 2.0 interface defines the abstract interface of a Web service as a set of abstract\n operations, each operation representing a simple interaction between the client and the service.\n Each operation specifies the types of messages that the service can send or receive as part of that operation.");
+            _WsdlInterfaceOBJ.setDerivedFrom("dmwsdl.WsdlDefinition");
+            _WsdlInterfaceOBJ.setIsNamedBy("meta.name");
+            _WsdlInterfaceOBJ.setUseWrapperType("EXTENDED");
+            _WsdlInterfaceOBJ.setDmtREFImport("org.dmd.wsdl.shared.generated.types.WsdlInterfaceREF");
+            _WsdlInterfaceOBJ.setDmwIteratorClass("WsdlInterfaceIterableDMW");
+            _WsdlInterfaceOBJ.addMust("meta.name");
+            _WsdlInterfaceOBJ.addMust("dmwsdl.operations");
+            _WsdlInterfaceOBJ.setDmwIteratorImport("org.dmd.wsdl.server.generated.dmw.WsdlInterfaceIterableDMW");
+            _WsdlInterfaceOBJ.setPartOfDefinitionModule("dmwsdl.WsdlModule");
+            _WsdlInterfaceOBJ.setDotName("dmwsdl.WsdlInterface.ClassDefinition");
+            _WsdlInterfaceOBJ.setNameAndTypeName("WsdlInterface.ClassDefinition");
+            _WsdlInterface.setDefinedIn(this);
+            addClassDefList(_WsdlInterface);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ClassDefinitionDMO _WsdlOperationOBJ = new ClassDefinitionDMO();
+            _WsdlOperation = new ClassDefinition(_WsdlOperationOBJ,DmwsdlDMSAG.__WsdlOperation);
+            _WsdlOperationOBJ.setName("WsdlOperation");
+            _WsdlOperationOBJ.setDmdID("-478495");
+            _WsdlOperationOBJ.setClassType("STRUCTURAL");
+            _WsdlOperationOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/classes.dmd");
+            _WsdlOperationOBJ.setLineNumber("59");
+            _WsdlOperationOBJ.addDescription("Each WsdlOperation specifies the types of messages that the service can send or receive as\n part of that operation. Each operation also specifies a message exchange pattern that indicates the sequence\n in which the associated messages are to be transmitted between the parties.");
+            _WsdlOperationOBJ.setDerivedFrom("dmwsdl.WsdlDefinition");
+            _WsdlOperationOBJ.setIsNamedBy("meta.name");
+            _WsdlOperationOBJ.setUseWrapperType("EXTENDED");
+            _WsdlOperationOBJ.setDmtREFImport("org.dmd.wsdl.shared.generated.types.WsdlOperationREF");
+            _WsdlOperationOBJ.setDmwIteratorClass("WsdlOperationIterableDMW");
+            _WsdlOperationOBJ.addMay("dmwsdl.pattern");
+            _WsdlOperationOBJ.addMay("dmwsdl.style");
+            _WsdlOperationOBJ.addMay("dmwsdl.input");
+            _WsdlOperationOBJ.addMay("dmwsdl.output");
+            _WsdlOperationOBJ.addMust("meta.name");
+            _WsdlOperationOBJ.setDmwIteratorImport("org.dmd.wsdl.server.generated.dmw.WsdlOperationIterableDMW");
+            _WsdlOperationOBJ.setPartOfDefinitionModule("dmwsdl.WsdlModule");
+            _WsdlOperationOBJ.setDotName("dmwsdl.WsdlOperation.ClassDefinition");
+            _WsdlOperationOBJ.setNameAndTypeName("WsdlOperation.ClassDefinition");
+            _WsdlOperation.setDefinedIn(this);
+            addClassDefList(_WsdlOperation);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ClassDefinitionDMO _WsdlServiceOBJ = new ClassDefinitionDMO();
+            _WsdlService = new ClassDefinition(_WsdlServiceOBJ,DmwsdlDMSAG.__WsdlService);
+            _WsdlServiceOBJ.setName("WsdlService");
+            _WsdlServiceOBJ.setDmdID("-478494");
+            _WsdlServiceOBJ.setClassType("STRUCTURAL");
+            _WsdlServiceOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/classes.dmd");
+            _WsdlServiceOBJ.setLineNumber("72");
+            _WsdlServiceOBJ.addDescription("A WsdlService specifies a single interface that the service will support, and a list of\n endpoint locations where that service can be accessed. Each endpoint must also reference a previously\n defined binding to indicate what protocols and transmission formats are to be used at that endpoint.\n A service is only permitted to have one interface.");
+            _WsdlServiceOBJ.setDerivedFrom("dmwsdl.WsdlDefinition");
+            _WsdlServiceOBJ.setIsNamedBy("meta.name");
+            _WsdlServiceOBJ.setUseWrapperType("EXTENDED");
+            _WsdlServiceOBJ.setDmtREFImport("org.dmd.wsdl.shared.generated.types.WsdlServiceREF");
+            _WsdlServiceOBJ.setDmwIteratorClass("WsdlServiceIterableDMW");
+            _WsdlServiceOBJ.addMust("meta.name");
+            _WsdlServiceOBJ.setDmwIteratorImport("org.dmd.wsdl.server.generated.dmw.WsdlServiceIterableDMW");
+            _WsdlServiceOBJ.setPartOfDefinitionModule("dmwsdl.WsdlModule");
+            _WsdlServiceOBJ.setDotName("dmwsdl.WsdlService.ClassDefinition");
+            _WsdlServiceOBJ.setNameAndTypeName("WsdlService.ClassDefinition");
+            _WsdlService.setDefinedIn(this);
+            addClassDefList(_WsdlService);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ClassDefinitionDMO _XmlElementOBJ = new ClassDefinitionDMO();
+            _XmlElement = new ClassDefinition(_XmlElementOBJ,DmwsdlDMSAG.__XmlElement);
+            _XmlElementOBJ.setName("XmlElement");
+            _XmlElementOBJ.setDmdID("-478493");
+            _XmlElementOBJ.setClassType("STRUCTURAL");
+            _XmlElementOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/classes.dmd");
+            _XmlElementOBJ.setLineNumber("86");
+            _XmlElementOBJ.addDescription("This is representative of an XML schema element, which pretty much aligns to a dark-matter\n attribute definition. I've cheated a bit by defining it here as a part of this DSL. In reality, there would\n be a separate XML schema DSL (lets call it XmlSchemaModule) that the WsdlModule would indicate via the\n refersToDefsFromDSD attribute.");
+            _XmlElementOBJ.setDerivedFrom("dmwsdl.WsdlDefinition");
+            _XmlElementOBJ.setIsNamedBy("meta.name");
+            _XmlElementOBJ.setUseWrapperType("EXTENDED");
+            _XmlElementOBJ.setDmtREFImport("org.dmd.wsdl.shared.generated.types.XmlElementREF");
+            _XmlElementOBJ.setDmwIteratorClass("XmlElementIterableDMW");
+            _XmlElementOBJ.addMust("meta.name");
+            _XmlElementOBJ.addMust("meta.type");
+            _XmlElementOBJ.setDmwIteratorImport("org.dmd.wsdl.server.generated.dmw.XmlElementIterableDMW");
+            _XmlElementOBJ.setPartOfDefinitionModule("dmwsdl.WsdlModule");
+            _XmlElementOBJ.setDotName("dmwsdl.XmlElement.ClassDefinition");
+            _XmlElementOBJ.setNameAndTypeName("XmlElement.ClassDefinition");
+            _XmlElement.setDefinedIn(this);
+            addClassDefList(_XmlElement);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             ClassDefinitionDMO _WsdlModuleOBJ = new ClassDefinitionDMO();
             _WsdlModule = new ClassDefinition(_WsdlModuleOBJ,DmwsdlDMSAG.__WsdlModule);
             _WsdlModuleOBJ.setName("WsdlModule");
@@ -160,8 +298,151 @@ public class DmwsdlSchemaAG extends SchemaDefinition {
             _definedInWsdlModuleOBJ.setDotName("dmwsdl.definedInWsdlModule.AttributeDefinition");
             _definedInWsdlModule.setDefinedIn(this);
             _definedInWsdlModuleOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/attributes.dmd");
-            _definedInWsdlModuleOBJ.setLineNumber("12");
+            _definedInWsdlModuleOBJ.setLineNumber("13");
             addAttributeDefList(_definedInWsdlModule);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _nameSpaceOBJ = new AttributeDefinitionDMO();
+            _nameSpace = new AttributeDefinition(_nameSpaceOBJ);
+            _nameSpaceOBJ.setType("dmwsdl.NameSpaceReference");
+            _nameSpaceOBJ.setName("nameSpace");
+            _nameSpaceOBJ.setDmdID("-478497");
+            _nameSpaceOBJ.addDescription("Indicates an XML namespace. Obviously, this would eventually be a reference\n to an object, an XmlNameSpace, but for now, it's just representative.");
+            _nameSpaceOBJ.setNameAndTypeName("nameSpace.AttributeDefinition");
+            _nameSpaceOBJ.setValueType("MULTI");
+            _nameSpaceOBJ.setDotName("dmwsdl.nameSpace.AttributeDefinition");
+            _nameSpace.setDefinedIn(this);
+            _nameSpaceOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/attributes.dmd");
+            _nameSpaceOBJ.setLineNumber("21");
+            addAttributeDefList(_nameSpace);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _targetNameSpaceOBJ = new AttributeDefinitionDMO();
+            _targetNameSpace = new AttributeDefinition(_targetNameSpaceOBJ);
+            _targetNameSpaceOBJ.setType("meta.String");
+            _targetNameSpaceOBJ.setName("targetNameSpace");
+            _targetNameSpaceOBJ.setDmdID("-478496");
+            _targetNameSpaceOBJ.addDescription("The target namespace for a WSDL.");
+            _targetNameSpaceOBJ.setNameAndTypeName("targetNameSpace.AttributeDefinition");
+            _targetNameSpaceOBJ.setDotName("dmwsdl.targetNameSpace.AttributeDefinition");
+            _targetNameSpace.setDefinedIn(this);
+            _targetNameSpaceOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/attributes.dmd");
+            _targetNameSpaceOBJ.setLineNumber("27");
+            addAttributeDefList(_targetNameSpace);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _serviceTitleOBJ = new AttributeDefinitionDMO();
+            _serviceTitle = new AttributeDefinition(_serviceTitleOBJ);
+            _serviceTitleOBJ.setType("meta.String");
+            _serviceTitleOBJ.setName("serviceTitle");
+            _serviceTitleOBJ.setDmdID("-478495");
+            _serviceTitleOBJ.addDescription("The title of the WSDL.");
+            _serviceTitleOBJ.setNameAndTypeName("serviceTitle.AttributeDefinition");
+            _serviceTitleOBJ.setDotName("dmwsdl.serviceTitle.AttributeDefinition");
+            _serviceTitle.setDefinedIn(this);
+            _serviceTitleOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/attributes.dmd");
+            _serviceTitleOBJ.setLineNumber("33");
+            addAttributeDefList(_serviceTitle);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _interfaceOBJ = new AttributeDefinitionDMO();
+            _interface = new AttributeDefinition(_interfaceOBJ);
+            _interfaceOBJ.setType("dmwsdl.WsdlInterface");
+            _interfaceOBJ.setName("interface");
+            _interfaceOBJ.setDmdID("-478494");
+            _interfaceOBJ.addDescription("The interfaces implemented by a web service.");
+            _interfaceOBJ.setNameAndTypeName("interface.AttributeDefinition");
+            _interfaceOBJ.setDotName("dmwsdl.interface.AttributeDefinition");
+            _interface.setDefinedIn(this);
+            _interfaceOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/attributes.dmd");
+            _interfaceOBJ.setLineNumber("39");
+            addAttributeDefList(_interface);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _operationsOBJ = new AttributeDefinitionDMO();
+            _operations = new AttributeDefinition(_operationsOBJ);
+            _operationsOBJ.setType("dmwsdl.WsdlOperation");
+            _operationsOBJ.setName("operations");
+            _operationsOBJ.setDmdID("-478493");
+            _operationsOBJ.addDescription("The interfaces implemented by a web service.");
+            _operationsOBJ.setNameAndTypeName("operations.AttributeDefinition");
+            _operationsOBJ.setDotName("dmwsdl.operations.AttributeDefinition");
+            _operations.setDefinedIn(this);
+            _operationsOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/attributes.dmd");
+            _operationsOBJ.setLineNumber("45");
+            addAttributeDefList(_operations);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _serviceOBJ = new AttributeDefinitionDMO();
+            _service = new AttributeDefinition(_serviceOBJ);
+            _serviceOBJ.setType("dmwsdl.WsdlService");
+            _serviceOBJ.setName("service");
+            _serviceOBJ.setDmdID("-478492");
+            _serviceOBJ.addDescription("The services implemented by a web service.");
+            _serviceOBJ.setNameAndTypeName("service.AttributeDefinition");
+            _serviceOBJ.setDotName("dmwsdl.service.AttributeDefinition");
+            _service.setDefinedIn(this);
+            _serviceOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/attributes.dmd");
+            _serviceOBJ.setLineNumber("51");
+            addAttributeDefList(_service);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _inputOBJ = new AttributeDefinitionDMO();
+            _input = new AttributeDefinition(_inputOBJ);
+            _inputOBJ.setType("dmwsdl.XmlElement");
+            _inputOBJ.setName("input");
+            _inputOBJ.setDmdID("-478491");
+            _inputOBJ.addDescription("The arguments passed to an operation.");
+            _inputOBJ.setNameAndTypeName("input.AttributeDefinition");
+            _inputOBJ.setValueType("MULTI");
+            _inputOBJ.setDotName("dmwsdl.input.AttributeDefinition");
+            _input.setDefinedIn(this);
+            _inputOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/attributes.dmd");
+            _inputOBJ.setLineNumber("58");
+            addAttributeDefList(_input);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _outputOBJ = new AttributeDefinitionDMO();
+            _output = new AttributeDefinition(_outputOBJ);
+            _outputOBJ.setType("dmwsdl.XmlElement");
+            _outputOBJ.setName("output");
+            _outputOBJ.setDmdID("-478490");
+            _outputOBJ.addDescription("The results of an operation.");
+            _outputOBJ.setNameAndTypeName("output.AttributeDefinition");
+            _outputOBJ.setValueType("MULTI");
+            _outputOBJ.setDotName("dmwsdl.output.AttributeDefinition");
+            _output.setDefinedIn(this);
+            _outputOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/attributes.dmd");
+            _outputOBJ.setLineNumber("65");
+            addAttributeDefList(_output);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _patternOBJ = new AttributeDefinitionDMO();
+            _pattern = new AttributeDefinition(_patternOBJ);
+            _patternOBJ.setType("meta.String");
+            _patternOBJ.setName("pattern");
+            _patternOBJ.setDmdID("-478489");
+            _patternOBJ.addDescription("A placeholder for the concept of a reference to a pattern of message exchange.");
+            _patternOBJ.setNameAndTypeName("pattern.AttributeDefinition");
+            _patternOBJ.setDotName("dmwsdl.pattern.AttributeDefinition");
+            _pattern.setDefinedIn(this);
+            _patternOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/attributes.dmd");
+            _patternOBJ.setLineNumber("71");
+            addAttributeDefList(_pattern);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _styleOBJ = new AttributeDefinitionDMO();
+            _style = new AttributeDefinition(_styleOBJ);
+            _styleOBJ.setType("meta.String");
+            _styleOBJ.setName("style");
+            _styleOBJ.setDmdID("-478488");
+            _styleOBJ.addDescription("A placeholder for the concept of a reference to an IRI serialization style.");
+            _styleOBJ.setNameAndTypeName("style.AttributeDefinition");
+            _styleOBJ.setDotName("dmwsdl.style.AttributeDefinition");
+            _style.setDefinedIn(this);
+            _styleOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/attributes.dmd");
+            _styleOBJ.setLineNumber("77");
+            addAttributeDefList(_style);
 
     }
 
@@ -171,6 +452,21 @@ public class DmwsdlSchemaAG extends SchemaDefinition {
 
     // Generated from: org.dmd.dmg.util.SchemaFormatter.dumpInitFunction(SchemaFormatter.java:313)
     private void initComplexTypes() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ComplexTypeDefinitionDMO _NameSpaceReferenceOBJ = new ComplexTypeDefinitionDMO();
+            _NameSpaceReference = new ComplexTypeDefinition(_NameSpaceReferenceOBJ);
+            _NameSpaceReferenceOBJ.setMandatoryFields("1");
+            _NameSpaceReferenceOBJ.setName("NameSpaceReference");
+            _NameSpaceReferenceOBJ.addDescription("A namespace from which definitions are used.");
+            _NameSpaceReferenceOBJ.setNameAndTypeName("NameSpaceReference.ComplexTypeDefinition");
+            _NameSpaceReferenceOBJ.setDotName("dmwsdl.NameSpaceReference.ComplexTypeDefinition");
+            _NameSpaceReference.setDefinedIn(this);
+            _NameSpaceReferenceOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/complex.dmd");
+            _NameSpaceReferenceOBJ.setLineNumber("6");
+            _NameSpaceReferenceOBJ.addField("String url The URL of the namespace being used.");
+            _NameSpaceReferenceOBJ.addField("String prefix The prefix that indicates a subset of the namespace");
+            addComplexTypeDefList(_NameSpaceReference);
+
     }
 
     // Generated from: org.dmd.dmg.util.SchemaFormatter.dumpInitFunction(SchemaFormatter.java:313)

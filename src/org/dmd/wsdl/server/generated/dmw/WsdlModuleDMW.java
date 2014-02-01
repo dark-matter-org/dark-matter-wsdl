@@ -14,7 +14,12 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // A
 import org.dmd.dms.generated.dmw.StringIterableDMW;                         // For multi-valued String - (BaseDMWGenerator.java:2103)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (BaseDMWGenerator.java:1071)
 import org.dmd.wsdl.server.extended.WsdlDefinition;                         // Derived class - (BaseDMWGenerator.java:1248)
+import org.dmd.wsdl.server.extended.WsdlDescription;                        // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.WsdlInterface;                          // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
 import org.dmd.wsdl.server.extended.WsdlModule;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:1076)
+import org.dmd.wsdl.server.extended.WsdlOperation;                          // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.WsdlService;                            // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.XmlElement;                             // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
 import org.dmd.wsdl.server.generated.dmw.WsdlModuleIterableDMW;             // For multi-valued WsdlModule - (BaseDMWGenerator.java:1709)
 import org.dmd.wsdl.server.generated.dsd.WsdlModuleScopedInterface;         // Required to manage module definition - (DMWGenerator.java:169)
 import org.dmd.wsdl.shared.generated.dmo.DmwsdlDMSAG;                       // Attribute dependsOnWsdlModule from the dmwsdl schema - (BaseDMWGenerator.java:897)
@@ -34,8 +39,13 @@ abstract public class WsdlModuleDMW extends WsdlDefinition implements DmcDefinit
 
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:59)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:203)
-    DmcDefinitionSet<WsdlDefinition>     WsdlDefinitionDefs    = new DmcDefinitionSet<WsdlDefinition>("WsdlModule-allDefinitions");   // All definitions associated with this module
-    DmcDefinitionSet<WsdlModule>         WsdlModuleDefs        = new DmcDefinitionSet<WsdlModule>("WsdlModule-WsdlModuleDefs");       // All WsdlModule definitions
+    DmcDefinitionSet<WsdlDefinition>      WsdlDefinitionDefs     = new DmcDefinitionSet<WsdlDefinition>("WsdlModule-allDefinitions");         // All definitions associated with this module
+    DmcDefinitionSet<WsdlDescription>     WsdlDescriptionDefs    = new DmcDefinitionSet<WsdlDescription>("WsdlModule-WsdlDescriptionDefs");   // All WsdlDescription definitions
+    DmcDefinitionSet<WsdlInterface>       WsdlInterfaceDefs      = new DmcDefinitionSet<WsdlInterface>("WsdlModule-WsdlInterfaceDefs");       // All WsdlInterface definitions
+    DmcDefinitionSet<WsdlModule>          WsdlModuleDefs         = new DmcDefinitionSet<WsdlModule>("WsdlModule-WsdlModuleDefs");             // All WsdlModule definitions
+    DmcDefinitionSet<WsdlOperation>       WsdlOperationDefs      = new DmcDefinitionSet<WsdlOperation>("WsdlModule-WsdlOperationDefs");       // All WsdlOperation definitions
+    DmcDefinitionSet<WsdlService>         WsdlServiceDefs        = new DmcDefinitionSet<WsdlService>("WsdlModule-WsdlServiceDefs");           // All WsdlService definitions
+    DmcDefinitionSet<XmlElement>          XmlElementDefs         = new DmcDefinitionSet<XmlElement>("WsdlModule-XmlElementDefs");             // All XmlElement definitions
 
     // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:558)
     public WsdlModuleDMW() {
@@ -570,6 +580,96 @@ abstract public class WsdlModuleDMW extends WsdlDefinition implements DmcDefinit
 
     public Iterator<WsdlDefinition> getAllWsdlDefinition(){
         return(WsdlDefinitionDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
+    public void addWsdlDescription(WsdlDescription def){
+        WsdlDescriptionDefs.add(def);
+        addWsdlDefinition(def);
+    }
+
+    public int getWsdlDescriptionCount(){
+        return(WsdlDescriptionDefs.size());
+    }
+
+    public WsdlDescription getWsdlDescription(DotName name){
+        return(WsdlDescriptionDefs.getDefinition(name));
+    }
+
+    public Iterator<WsdlDescription> getAllWsdlDescription(){
+        return(WsdlDescriptionDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
+    public void addWsdlInterface(WsdlInterface def){
+        WsdlInterfaceDefs.add(def);
+        addWsdlDefinition(def);
+    }
+
+    public int getWsdlInterfaceCount(){
+        return(WsdlInterfaceDefs.size());
+    }
+
+    public WsdlInterface getWsdlInterface(DotName name){
+        return(WsdlInterfaceDefs.getDefinition(name));
+    }
+
+    public Iterator<WsdlInterface> getAllWsdlInterface(){
+        return(WsdlInterfaceDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
+    public void addWsdlOperation(WsdlOperation def){
+        WsdlOperationDefs.add(def);
+        addWsdlDefinition(def);
+    }
+
+    public int getWsdlOperationCount(){
+        return(WsdlOperationDefs.size());
+    }
+
+    public WsdlOperation getWsdlOperation(DotName name){
+        return(WsdlOperationDefs.getDefinition(name));
+    }
+
+    public Iterator<WsdlOperation> getAllWsdlOperation(){
+        return(WsdlOperationDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
+    public void addWsdlService(WsdlService def){
+        WsdlServiceDefs.add(def);
+        addWsdlDefinition(def);
+    }
+
+    public int getWsdlServiceCount(){
+        return(WsdlServiceDefs.size());
+    }
+
+    public WsdlService getWsdlService(DotName name){
+        return(WsdlServiceDefs.getDefinition(name));
+    }
+
+    public Iterator<WsdlService> getAllWsdlService(){
+        return(WsdlServiceDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
+    public void addXmlElement(XmlElement def){
+        XmlElementDefs.add(def);
+        addWsdlDefinition(def);
+    }
+
+    public int getXmlElementCount(){
+        return(XmlElementDefs.size());
+    }
+
+    public XmlElement getXmlElement(DotName name){
+        return(XmlElementDefs.getDefinition(name));
+    }
+
+    public Iterator<XmlElement> getAllXmlElement(){
+        return(XmlElementDefs.values().iterator());
     }
 
     // Generated from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:221)

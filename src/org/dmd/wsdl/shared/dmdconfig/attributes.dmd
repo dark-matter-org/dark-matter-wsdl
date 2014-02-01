@@ -10,3 +10,70 @@ name			definedInWsdlModule
 dmdID			2
 type			WsdlModule
 description		Indicates the name of the WsdlModule in which a definition is defined.
+
+AttributeDefinition
+name			nameSpace
+dmdID			3
+type			NameSpaceReference
+valueType		MULTI
+description		Indicates an XML namespace. Obviously, this would eventually be a reference
+ to an object, an XmlNameSpace, but for now, it's just representative.
+
+AttributeDefinition
+name			targetNameSpace
+dmdID			4
+type			String
+description		The target namespace for a WSDL.
+
+AttributeDefinition
+name			serviceTitle
+dmdID			5
+type			String
+description		The title of the WSDL.
+
+AttributeDefinition
+name			interface
+dmdID			6
+type			WsdlInterface
+description		The interfaces implemented by a web service.
+
+AttributeDefinition
+name			operations
+dmdID			7
+type			WsdlOperation
+description		The interfaces implemented by a web service.
+
+AttributeDefinition
+name			service
+dmdID			8
+type			WsdlService
+description		The services implemented by a web service.
+
+AttributeDefinition
+name			input
+dmdID			9
+type			XmlElement
+valueType		MULTI
+description		The arguments passed to an operation.
+
+AttributeDefinition
+name			output
+dmdID			10
+type			XmlElement
+valueType		MULTI
+description		The results of an operation.
+
+AttributeDefinition
+name			pattern
+dmdID			11
+type			String
+description		A placeholder for the concept of a reference to a pattern of message exchange.
+
+AttributeDefinition
+name			style
+dmdID			12
+type			String
+description		A placeholder for the concept of a reference to an IRI serialization style.
+
+
+

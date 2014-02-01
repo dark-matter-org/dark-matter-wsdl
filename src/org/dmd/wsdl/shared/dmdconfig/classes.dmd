@@ -8,6 +8,79 @@ isNamedBy		name
 must			name
 must			dotName
 must			definedInWsdlModule
-//may				hint
 may				description
 description		The WsdlDefinition provides a common base for all dm-wsdl related definitions.
+
+ClassDefinition
+name			WsdlDescription
+classType   	STRUCTURAL
+dmdID			3
+useWrapperType	EXTENDED
+derivedFrom		WsdlDefinition
+isNamedBy		name
+must			name
+must			nameSpace
+must			targetNameSpace
+must			serviceTitle
+may				interface
+may				service
+may				description
+description		The WsdlDescription defines a web service.
+
+
+ClassDefinition
+name			WsdlInterface
+classType   	STRUCTURAL
+dmdID			4
+useWrapperType	EXTENDED
+derivedFrom		WsdlDefinition
+isNamedBy		name
+must			name
+must			operations
+description		A WSDL 2.0 interface defines the abstract interface of a Web service as a set of abstract
+ operations, each operation representing a simple interaction between the client and the service.
+ Each operation specifies the types of messages that the service can send or receive as part of that operation.
+
+ClassDefinition
+name			WsdlOperation
+classType   	STRUCTURAL
+dmdID			5
+useWrapperType	EXTENDED
+derivedFrom		WsdlDefinition
+isNamedBy		name
+must			name
+may				pattern
+may				style
+may				input
+may				output
+description 	Each WsdlOperation specifies the types of messages that the service can send or receive as
+ part of that operation. Each operation also specifies a message exchange pattern that indicates the sequence
+ in which the associated messages are to be transmitted between the parties.
+
+ClassDefinition
+name			WsdlService
+classType   	STRUCTURAL
+dmdID			6
+useWrapperType	EXTENDED
+derivedFrom		WsdlDefinition
+isNamedBy		name
+must			name
+description		A WsdlService specifies a single interface that the service will support, and a list of
+ endpoint locations where that service can be accessed. Each endpoint must also reference a previously
+ defined binding to indicate what protocols and transmission formats are to be used at that endpoint.
+ A service is only permitted to have one interface.
+
+ClassDefinition
+name			XmlElement
+classType   	STRUCTURAL
+dmdID			7
+derivedFrom		WsdlDefinition
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+must			type
+description		This is representative of an XML schema element, which pretty much aligns to a dark-matter
+ attribute definition. I've cheated a bit by defining it here as a part of this DSL. In reality, there would
+ be a separate XML schema DSL (lets call it XmlSchemaModule) that the WsdlModule would indicate via the
+ refersToDefsFromDSD attribute.
+

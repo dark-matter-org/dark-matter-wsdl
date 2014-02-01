@@ -35,7 +35,12 @@ import org.dmd.util.parsing.ConfigLocation;                                 // C
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;                       // Basic parsing of objects - (DSDArtifactFormatter.java:429)
 import org.dmd.util.parsing.DmcUncheckedOIFParser;                          // Basic parsing of objects - (DSDArtifactFormatter.java:428)
 import org.dmd.wsdl.server.extended.WsdlDefinition;                         // The base definition from the WsdlModule Module - (DSDArtifactFormatter.java:707)
+import org.dmd.wsdl.server.extended.WsdlDescription;                        // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
+import org.dmd.wsdl.server.extended.WsdlInterface;                          // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
 import org.dmd.wsdl.server.extended.WsdlModule;                             // The kind of DDM we're reading - (DSDArtifactFormatter.java:458)
+import org.dmd.wsdl.server.extended.WsdlOperation;                          // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
+import org.dmd.wsdl.server.extended.WsdlService;                            // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
+import org.dmd.wsdl.server.extended.XmlElement;                             // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
 import org.dmd.wsdl.server.generated.DmwsdlSchemaAG;                        // The schema recognized by this parser - (DSDArtifactFormatter.java:446)
 import org.dmd.wsdl.server.generated.dsd.WsdlModuleGlobalInterface;         // Interface to our definition storage - (DSDArtifactFormatter.java:434)
 
@@ -182,6 +187,26 @@ public class WsdlModuleParser implements DsdParserInterface, DmcUncheckedOIFHand
             definition.setDotName(module.getName() + "." + definition.getName() + "." + definition.getConstructionClassName());
             definition.setNameAndTypeName(definition.getName() + "." + definition.getConstructionClassName());
             
+            if (definition instanceof WsdlDescription){
+                definitions.addWsdlDescription((WsdlDescription)definition);
+                module.addWsdlDescription((WsdlDescription)definition);
+            }
+            else if (definition instanceof WsdlInterface){
+                definitions.addWsdlInterface((WsdlInterface)definition);
+                module.addWsdlInterface((WsdlInterface)definition);
+            }
+            else if (definition instanceof WsdlOperation){
+                definitions.addWsdlOperation((WsdlOperation)definition);
+                module.addWsdlOperation((WsdlOperation)definition);
+            }
+            else if (definition instanceof WsdlService){
+                definitions.addWsdlService((WsdlService)definition);
+                module.addWsdlService((WsdlService)definition);
+            }
+            else if (definition instanceof XmlElement){
+                definitions.addXmlElement((XmlElement)definition);
+                module.addXmlElement((XmlElement)definition);
+            }
 
         }
 

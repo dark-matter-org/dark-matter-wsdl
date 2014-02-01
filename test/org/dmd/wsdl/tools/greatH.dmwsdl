@@ -1,0 +1,18 @@
+WsdlModule
+name		greatH
+description	This module defines a partial view of the WSDL 2.0 example available at: http://www.w3.org/TR/wsdl20-primer
+
+WsdlDescription
+name			GreatH
+nameSpace		http://www.w3.org/ns/wsdl
+nameSpace		http://greath.example.com/2004/wsdl/resSvc		tns
+nameSpace		http://greath.example.com/2004/schemas/resSvc	ghns
+nameSpace		http://www.w3.org/ns/wsdl/soap					wsoap
+nameSpace		http://www.w3.org/2003/05/soap-envelope			soap
+nameSpace		http://www.w3.org/ns/wsdl-extensions			wsdlx
+targetNameSpace	http://greath.example.com/2004/wsdl/resSvc
+serviceTitle	Great H Web Service
+description		This document describes the GreatH Web service.  Additional 
+ application-level requirements for use of this service -- 
+ beyond what WSDL 2.0 is able to describe -- are available 
+ at http://greath.example.com/2004/reservation-documentation.html
