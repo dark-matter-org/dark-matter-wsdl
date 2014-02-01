@@ -1,0 +1,12 @@
+DSDefinitionModule
+name						WsdlModule
+fileExtension				dmwsdl
+dmdID						1
+moduleClassName				WsdlModule
+moduleDependenceAttribute 	dependsOnWsdlModule
+baseDefinition				WsdlDefinition
+definedInModuleAttribute	definedInWsdlModule
+supportDynamicSchemaLoading	true
+//requiredBaseModule			gpbbase
+//may							package
+
