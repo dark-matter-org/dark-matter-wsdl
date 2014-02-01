@@ -1,0 +1,6 @@
+ComplexTypeDefinition
+name NameSpaceReference
+field String  	url   	The URL of the namespace being used.
+field String	prefix 	The prefix that indicates a subset of the namespace
+mandatoryFields	1
+description		A namespace from which definitions are used.

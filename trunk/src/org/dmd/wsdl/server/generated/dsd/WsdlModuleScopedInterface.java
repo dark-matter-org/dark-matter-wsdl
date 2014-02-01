@@ -17,9 +17,14 @@ package org.dmd.wsdl.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:399)
-import java.util.Iterator;                                  // To provide iterators over definitions - (DSDArtifactFormatter.java:396)
-import org.dmd.dmc.types.DotName;                           // To support the find method for definitions - (DSDefinitionModule.java:163)
-import org.dmd.wsdl.server.extended.WsdlDefinition;         // A definition from the WsdlModule Module - (DSDefinitionModule.java:161)
+import java.util.Iterator;                                   // To provide iterators over definitions - (DSDArtifactFormatter.java:396)
+import org.dmd.dmc.types.DotName;                            // To support the find method for definitions - (DSDefinitionModule.java:163)
+import org.dmd.wsdl.server.extended.WsdlDefinition;          // A definition from the WsdlModule Module - (DSDefinitionModule.java:161)
+import org.dmd.wsdl.server.extended.WsdlDescription;         // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.WsdlInterface;           // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.WsdlOperation;           // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.WsdlService;             // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.XmlElement;              // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
 
 
 // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:403)
@@ -31,6 +36,31 @@ public interface WsdlModuleScopedInterface {
     public int getWsdlDefinitionCount();
     public WsdlDefinition getWsdlDefinition(DotName name);
     public Iterator<WsdlDefinition> getAllWsdlDefinition();
+
+    public void addWsdlDescription(WsdlDescription def);
+    public int getWsdlDescriptionCount();
+    public WsdlDescription getWsdlDescription(DotName name);
+    public Iterator<WsdlDescription> getAllWsdlDescription();
+
+    public void addWsdlInterface(WsdlInterface def);
+    public int getWsdlInterfaceCount();
+    public WsdlInterface getWsdlInterface(DotName name);
+    public Iterator<WsdlInterface> getAllWsdlInterface();
+
+    public void addWsdlOperation(WsdlOperation def);
+    public int getWsdlOperationCount();
+    public WsdlOperation getWsdlOperation(DotName name);
+    public Iterator<WsdlOperation> getAllWsdlOperation();
+
+    public void addWsdlService(WsdlService def);
+    public int getWsdlServiceCount();
+    public WsdlService getWsdlService(DotName name);
+    public Iterator<WsdlService> getAllWsdlService();
+
+    public void addXmlElement(XmlElement def);
+    public int getXmlElementCount();
+    public XmlElement getXmlElement(DotName name);
+    public Iterator<XmlElement> getAllXmlElement();
 
 }
 

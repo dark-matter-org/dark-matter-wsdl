@@ -12,7 +12,12 @@ public class DmwsdlDMSAGCMAP {
 
     static protected void initCmAp(HashMap<Integer, DmcClassInfo> _CmAp){
         _CmAp.put(DmwsdlDMSAG.__WsdlDefinition.id,DmwsdlDMSAG.__WsdlDefinition);
+        _CmAp.put(DmwsdlDMSAG.__WsdlDescription.id,DmwsdlDMSAG.__WsdlDescription);
+        _CmAp.put(DmwsdlDMSAG.__WsdlInterface.id,DmwsdlDMSAG.__WsdlInterface);
         _CmAp.put(DmwsdlDMSAG.__WsdlModule.id,DmwsdlDMSAG.__WsdlModule);
+        _CmAp.put(DmwsdlDMSAG.__WsdlOperation.id,DmwsdlDMSAG.__WsdlOperation);
+        _CmAp.put(DmwsdlDMSAG.__WsdlService.id,DmwsdlDMSAG.__WsdlService);
+        _CmAp.put(DmwsdlDMSAG.__XmlElement.id,DmwsdlDMSAG.__XmlElement);
     }
 
 }
