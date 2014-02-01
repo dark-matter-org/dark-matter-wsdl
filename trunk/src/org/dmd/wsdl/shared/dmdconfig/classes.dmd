@@ -1,0 +1,13 @@
+ClassDefinition
+name			WsdlDefinition
+classType   	ABSTRACT
+dmdID			2
+useWrapperType	EXTENDED
+derivedFrom		DSDefinition
+isNamedBy		name
+must			name
+must			dotName
+must			definedInWsdlModule
+//may				hint
+may				description
+description		The WsdlDefinition provides a common base for all dm-wsdl related definitions.

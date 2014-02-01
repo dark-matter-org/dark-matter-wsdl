@@ -1,0 +1,12 @@
+AttributeDefinition
+name			dependsOnWsdlModule
+dmdID			1
+type			WsdlModule
+valueType       MULTI
+description		Indicates the WsdlModule on which something depends.
+
+AttributeDefinition
+name			definedInWsdlModule
+dmdID			2
+type			WsdlModule
+description		Indicates the name of the WsdlModule in which a definition is defined.

@@ -1,0 +1,18 @@
+SchemaDefinition
+name       			dmwsdl
+schemaBaseID		-478500
+schemaIDRange		50
+//defFiles			types.dmd
+//defFiles			complex.dmd
+defFiles    		attributes.dmd
+defFiles    		classes.dmd
+// Note: handling the module like this is a hack to get around some object resolve issues
+// Eventually, it will probably wind up in the classes file. Or all definitions may be in one file
+// like MVW.
+defFiles			module.dmd
+generatedFileHeader LGPL.txt
+schemaPackage 		org.dmd.wsdl.shared
+dmwPackage 			org.dmd.wsdl.server
+description The dark-matter WSDL schema defines objects that allow for the specification
+ of Web Services Definition Language (WSDL) specifications.
+
