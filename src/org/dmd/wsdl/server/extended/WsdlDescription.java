@@ -6,13 +6,16 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
 
 import org.dmd.dms.ClassDefinition;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.wsdl.server.generated.dmw.NameSpaceReferenceIterableDMW;
 import org.dmd.wsdl.server.generated.dmw.WsdlDescriptionDMW;
+import org.dmd.wsdl.server.generated.dmw.WsdlInterfaceIterableDMW;
 import org.dmd.wsdl.shared.generated.dmo.WsdlDescriptionDMO;
 import org.dmd.wsdl.shared.generated.types.NameSpaceReference;
+import org.dmd.wsdl.util.XomPrettyPrinter;
 
 
 public class WsdlDescription extends WsdlDescriptionDMW {
@@ -29,28 +32,82 @@ public class WsdlDescription extends WsdlDescriptionDMW {
 		DebugInfo.debug("Writing to: " + dn + File.separator + getDefinedInWsdlModule().getName() + ".xml");
 
 		BufferedWriter out = new BufferedWriter(new FileWriter(dn + File.separator + getDefinedInWsdlModule().getName() + ".xml"));
-    	
-		out.write("<?xml version=\"1.0\" encoding=\"utf-8\" ?> \n");
-		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + "--> \n");
+    			
+		try{
+			out.write(XomPrettyPrinter.format(toXML()));
+		}
+		catch(Exception ex){
+			System.err.println(ex.toString());
+		}
 		
-		out.write("<description\n");
+		out.close();
+    }
+    
+    public String toXML(){
+    	StringBuffer sb = new StringBuffer();
+
+		sb.append("<?xml version=\"1.0\" encoding=\"utf-8\" ?> \n");
+		sb.append("<!-- " + DebugInfo.getWhereWeAreNow() + "--> \n\n");
+		
+		sb.append("<description\n");
 		
 		NameSpaceReferenceIterableDMW nsit = getNameSpaceIterable();
 		while(nsit.hasNext()){
 			NameSpaceReference nsr = nsit.next();
 			if (nsr.getPrefix() == null){
-				out.write("    xmlns:" + nsr.getPrefix() + "= \"" + nsr.getUrl() + "\"\n");
+				sb.append(" xmlns=\"" + nsr.getUrl() + "\" ");
 			}
 			else{
-				out.write("    xmlns=\"" + nsr.getUrl() + "\"\n");
+				sb.append(" xmlns:" + nsr.getPrefix() + "= \"" + nsr.getUrl() + "\" ");
 			}
 		}
+		sb.append("targetNamespace=\"" + getTargetNameSpace() + "\"");
 		
-		out.write("  >\n");
+		sb.append(">\n");
+		
+		///////////////////////////////////////////////////////////////////////
+		// Documentation
+		
+		if (getDescriptionHasValue()){
+			sb.append("<documentation> ");
+			Iterator<String> it = getDescription();
+			while(it.hasNext()){
+				sb.append(it.next() + "\n");
+			}
+			
+			sb.append("</documentation> ");
+		}
 		
 		
+		///////////////////////////////////////////////////////////////////////
+		// Types
 		
-		out.close();
+		sb.append("<types>");
+		
+		if (getEmbedSchema() != null)
+			sb.append(getEmbedSchema().toXML());
+		
+		sb.append("</types>");
+				
+		///////////////////////////////////////////////////////////////////////
+		// Interfaces
+		
+		WsdlInterfaceIterableDMW ifs = getInterfacesIterable();
+		while(ifs.hasNext()){
+			sb.append(ifs.next().toXML());
+		}
+		
+		///////////////////////////////////////////////////////////////////////
+		// Binding
+		
+		sb.append(getBinding().toXML());
+		
+		///////////////////////////////////////////////////////////////////////
+		// End of description
+		
+		sb.append("</description>\n\n");
+
+    	return(sb.toString());
     }
 
 }

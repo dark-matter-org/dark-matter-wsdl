@@ -16,22 +16,22 @@
 package org.dmd.wsdl.shared.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:396)
-import java.io.Serializable;                                               // Always required - (GenUtility.java:224)
-import java.util.*;                                                        // Always required if we have any MV attributes - (GenUtility.java:221)
-import org.dmd.dmc.DmcAttribute;                                           // Named object - (GenUtility.java:376)
-import org.dmd.dmc.DmcNamedObjectIF;                                       // Named object - (GenUtility.java:375)
-import org.dmd.dmc.DmcOmni;                                                // Lazy resolution - (GenUtility.java:320)
-import org.dmd.dmc.DmcSliceInfo;                                           // Required for object slicing - (GenUtility.java:229)
-import org.dmd.dmc.DmcValueException;                                      // Any attributes - (GenUtility.java:241)
-import org.dmd.dmc.types.DefinitionName;                                   // Naming attribute type - (GenUtility.java:370)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                // Required for MODREC constructor - (GenUtility.java:228)
-import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;                // Required type - (GenUtility.java:328)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                      // Required for MODREC constructor - (GenUtility.java:227)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                        // Required type - (GenUtility.java:328)
-import org.dmd.wsdl.shared.generated.dmo.WsdlDefinitionDMO;                // Base class - (GenUtility.java:355)
-import org.dmd.wsdl.shared.generated.dmo.XmlElementDMO;                    // Type specific set/add - (GenUtility.java:307)
-import org.dmd.wsdl.shared.generated.types.DmcTypeXmlElementREFMV;         // Reference type - (GenUtility.java:300)
-import org.dmd.wsdl.shared.generated.types.XmlElementREF;                  // Helper class - (GenUtility.java:335)
+import java.io.Serializable;                                                          // Always required - (GenUtility.java:224)
+import java.util.*;                                                                   // Always required if we have any MV attributes - (GenUtility.java:221)
+import org.dmd.dmc.DmcAttribute;                                                      // Named object - (GenUtility.java:376)
+import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object - (GenUtility.java:375)
+import org.dmd.dmc.DmcSliceInfo;                                                      // Required for object slicing - (GenUtility.java:229)
+import org.dmd.dmc.DmcValueException;                                                 // Any attributes - (GenUtility.java:241)
+import org.dmd.dmc.types.DefinitionName;                                              // Naming attribute type - (GenUtility.java:370)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor - (GenUtility.java:228)
+import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;                           // Required type - (GenUtility.java:328)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (GenUtility.java:227)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                                   // Required type - (GenUtility.java:328)
+import org.dmd.wsdl.shared.generated.dmo.WsdlDefinitionDMO;                           // Base class - (GenUtility.java:355)
+import org.dmd.wsdl.shared.generated.types.DmcTypeLabelledElementReferenceMV;         // Required type - (GenUtility.java:328)
+import org.dmd.wsdl.shared.generated.types.DmcTypeLabelledFaultReferenceMV;           // Required type - (GenUtility.java:328)
+import org.dmd.wsdl.shared.generated.types.LabelledElementReference;                  // Primitive type and !auxiliary class - (GenUtility.java:271)
+import org.dmd.wsdl.shared.generated.types.LabelledFaultReference;                    // Primitive type and !auxiliary class - (GenUtility.java:271)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
@@ -222,47 +222,39 @@ public class WsdlOperationDMO  extends WsdlDefinitionDMO  implements DmcNamedObj
     }
 
     /**
-     * @return An Iterator of XmlElementDMO objects.
+     * @return An Iterator of LabelledElementReference objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:970)
-    public Iterator<XmlElementREF> getInput(){
-        DmcTypeXmlElementREFMV attr = (DmcTypeXmlElementREFMV) get(DmwsdlDMSAG.__input);
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1112)
+    public Iterator<LabelledElementReference> getInput(){
+        DmcTypeLabelledElementReferenceMV attr = (DmcTypeLabelledElementReferenceMV) get(DmwsdlDMSAG.__input);
         if (attr == null)
-            return( ((List<XmlElementREF>) Collections.EMPTY_LIST).iterator() );
-
-        if (DmcOmni.instance().lazyResolution()){
-            if (attr.doLazyResolution(this)){
-                rem(attr.getAttributeInfo());
-                return( ((List<XmlElementREF>) Collections.EMPTY_LIST).iterator() );
-            }
-        }
+            return( ((List<LabelledElementReference>) Collections.EMPTY_LIST).iterator());
 
         return(attr.getMV());
     }
 
     /**
-     * @return An Iterator of XmlElementREFs without attempting lazy resolution (if it's turned on).
+     * @return The nth LabelledElementReference value.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:990)
-    public Iterator<XmlElementREF> getInputREFs(){
-        DmcTypeXmlElementREFMV attr = (DmcTypeXmlElementREFMV) get(DmwsdlDMSAG.__input);
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    public LabelledElementReference getNthInput(int i){
+        DmcTypeLabelledElementReferenceMV attr = (DmcTypeLabelledElementReferenceMV) get(DmwsdlDMSAG.__input);
         if (attr == null)
-            return( ((List<XmlElementREF>) Collections.EMPTY_LIST).iterator() );
+            return(null);
 
-        return(attr.getMV());
+        return(attr.getMVnth(i));
     }
 
     /**
      * Adds another input to the specified value.
-     * @param value XmlElement
+     * @param value LabelledElementReference
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1004)
-    public DmcAttribute<?> addInput(XmlElementDMO value) {
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1138)
+    public DmcAttribute<?> addInput(LabelledElementReference value) {
         DmcAttribute<?> attr = get(DmwsdlDMSAG.__input);
         if (attr == null)
-            attr = new DmcTypeXmlElementREFMV(DmwsdlDMSAG.__input);
+            attr = new DmcTypeLabelledElementReferenceMV(DmwsdlDMSAG.__input);
         
         try{
             setLastValue(attr.add(value));
@@ -275,14 +267,26 @@ public class WsdlOperationDMO  extends WsdlDefinitionDMO  implements DmcNamedObj
     }
 
     /**
+     * Returns true if we contain a valued keyed by the specified LabelledElementReference.
+     * @param value LabelledElementReference
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1213)
+    public boolean inputContains(LabelledElementReference value) {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__input);
+        if (attr == null)
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
      * Adds another input value.
-     * @param value A value compatible with XmlElement
+     * @param value A value compatible with LabelledElementReference
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1245)
     public DmcAttribute<?> addInput(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmwsdlDMSAG.__input);
         if (attr == null)
-            attr = new DmcTypeXmlElementREFMV(DmwsdlDMSAG.__input);
+            attr = new DmcTypeLabelledElementReferenceMV(DmwsdlDMSAG.__input);
         
         setLastValue(attr.add(value));
         add(DmwsdlDMSAG.__input,attr);
@@ -306,14 +310,30 @@ public class WsdlOperationDMO  extends WsdlDefinitionDMO  implements DmcNamedObj
 
     /**
      * Deletes a input value.
-     * @param value The XmlElement to be deleted from set of attribute values.
+     * @param value The LabelledElementReference to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
-    public DmcAttribute<?> delInput(Object value){
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1320)
+    public DmcAttribute<?> delInput(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmwsdlDMSAG.__input);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeXmlElementREFMV(DmwsdlDMSAG.__input), value);
+            delFromEmptyAttribute(new DmcTypeLabelledElementReferenceMV(DmwsdlDMSAG.__input), value);
+        else
+            attr = del(DmwsdlDMSAG.__input, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a input from the specified value.
+     * @param value LabelledElementReference
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1336)
+    public DmcAttribute<?> delInput(LabelledElementReference value) {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__input);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeLabelledElementReferenceMV(DmwsdlDMSAG.__input), value);
         else
             attr = del(DmwsdlDMSAG.__input, value);
         
@@ -329,47 +349,39 @@ public class WsdlOperationDMO  extends WsdlDefinitionDMO  implements DmcNamedObj
     }
 
     /**
-     * @return An Iterator of XmlElementDMO objects.
+     * @return An Iterator of LabelledElementReference objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:970)
-    public Iterator<XmlElementREF> getOutput(){
-        DmcTypeXmlElementREFMV attr = (DmcTypeXmlElementREFMV) get(DmwsdlDMSAG.__output);
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1112)
+    public Iterator<LabelledElementReference> getOutput(){
+        DmcTypeLabelledElementReferenceMV attr = (DmcTypeLabelledElementReferenceMV) get(DmwsdlDMSAG.__output);
         if (attr == null)
-            return( ((List<XmlElementREF>) Collections.EMPTY_LIST).iterator() );
-
-        if (DmcOmni.instance().lazyResolution()){
-            if (attr.doLazyResolution(this)){
-                rem(attr.getAttributeInfo());
-                return( ((List<XmlElementREF>) Collections.EMPTY_LIST).iterator() );
-            }
-        }
+            return( ((List<LabelledElementReference>) Collections.EMPTY_LIST).iterator());
 
         return(attr.getMV());
     }
 
     /**
-     * @return An Iterator of XmlElementREFs without attempting lazy resolution (if it's turned on).
+     * @return The nth LabelledElementReference value.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:990)
-    public Iterator<XmlElementREF> getOutputREFs(){
-        DmcTypeXmlElementREFMV attr = (DmcTypeXmlElementREFMV) get(DmwsdlDMSAG.__output);
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    public LabelledElementReference getNthOutput(int i){
+        DmcTypeLabelledElementReferenceMV attr = (DmcTypeLabelledElementReferenceMV) get(DmwsdlDMSAG.__output);
         if (attr == null)
-            return( ((List<XmlElementREF>) Collections.EMPTY_LIST).iterator() );
+            return(null);
 
-        return(attr.getMV());
+        return(attr.getMVnth(i));
     }
 
     /**
      * Adds another output to the specified value.
-     * @param value XmlElement
+     * @param value LabelledElementReference
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1004)
-    public DmcAttribute<?> addOutput(XmlElementDMO value) {
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1138)
+    public DmcAttribute<?> addOutput(LabelledElementReference value) {
         DmcAttribute<?> attr = get(DmwsdlDMSAG.__output);
         if (attr == null)
-            attr = new DmcTypeXmlElementREFMV(DmwsdlDMSAG.__output);
+            attr = new DmcTypeLabelledElementReferenceMV(DmwsdlDMSAG.__output);
         
         try{
             setLastValue(attr.add(value));
@@ -382,14 +394,26 @@ public class WsdlOperationDMO  extends WsdlDefinitionDMO  implements DmcNamedObj
     }
 
     /**
+     * Returns true if we contain a valued keyed by the specified LabelledElementReference.
+     * @param value LabelledElementReference
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1213)
+    public boolean outputContains(LabelledElementReference value) {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__output);
+        if (attr == null)
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
      * Adds another output value.
-     * @param value A value compatible with XmlElement
+     * @param value A value compatible with LabelledElementReference
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1245)
     public DmcAttribute<?> addOutput(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmwsdlDMSAG.__output);
         if (attr == null)
-            attr = new DmcTypeXmlElementREFMV(DmwsdlDMSAG.__output);
+            attr = new DmcTypeLabelledElementReferenceMV(DmwsdlDMSAG.__output);
         
         setLastValue(attr.add(value));
         add(DmwsdlDMSAG.__output,attr);
@@ -413,14 +437,30 @@ public class WsdlOperationDMO  extends WsdlDefinitionDMO  implements DmcNamedObj
 
     /**
      * Deletes a output value.
-     * @param value The XmlElement to be deleted from set of attribute values.
+     * @param value The LabelledElementReference to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
-    public DmcAttribute<?> delOutput(Object value){
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1320)
+    public DmcAttribute<?> delOutput(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmwsdlDMSAG.__output);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeXmlElementREFMV(DmwsdlDMSAG.__output), value);
+            delFromEmptyAttribute(new DmcTypeLabelledElementReferenceMV(DmwsdlDMSAG.__output), value);
+        else
+            attr = del(DmwsdlDMSAG.__output, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a output from the specified value.
+     * @param value LabelledElementReference
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1336)
+    public DmcAttribute<?> delOutput(LabelledElementReference value) {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__output);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeLabelledElementReferenceMV(DmwsdlDMSAG.__output), value);
         else
             attr = del(DmwsdlDMSAG.__output, value);
         
@@ -433,6 +473,133 @@ public class WsdlOperationDMO  extends WsdlDefinitionDMO  implements DmcNamedObj
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1355)
     public void remOutput(){
          rem(DmwsdlDMSAG.__output);
+    }
+
+    /**
+     * @return An Iterator of LabelledFaultReference objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1112)
+    public Iterator<LabelledFaultReference> getOutfault(){
+        DmcTypeLabelledFaultReferenceMV attr = (DmcTypeLabelledFaultReferenceMV) get(DmwsdlDMSAG.__outfault);
+        if (attr == null)
+            return( ((List<LabelledFaultReference>) Collections.EMPTY_LIST).iterator());
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return The nth LabelledFaultReference value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    public LabelledFaultReference getNthOutfault(int i){
+        DmcTypeLabelledFaultReferenceMV attr = (DmcTypeLabelledFaultReferenceMV) get(DmwsdlDMSAG.__outfault);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
+     * Adds another outfault to the specified value.
+     * @param value LabelledFaultReference
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1138)
+    public DmcAttribute<?> addOutfault(LabelledFaultReference value) {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__outfault);
+        if (attr == null)
+            attr = new DmcTypeLabelledFaultReferenceMV(DmwsdlDMSAG.__outfault);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(DmwsdlDMSAG.__outfault,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Returns true if we contain a valued keyed by the specified LabelledFaultReference.
+     * @param value LabelledFaultReference
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1213)
+    public boolean outfaultContains(LabelledFaultReference value) {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__outfault);
+        if (attr == null)
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Adds another outfault value.
+     * @param value A value compatible with LabelledFaultReference
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1245)
+    public DmcAttribute<?> addOutfault(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__outfault);
+        if (attr == null)
+            attr = new DmcTypeLabelledFaultReferenceMV(DmwsdlDMSAG.__outfault);
+        
+        setLastValue(attr.add(value));
+        add(DmwsdlDMSAG.__outfault,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in outfault
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1262)
+    public int getOutfaultSize(){
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__outfault);
+        if (attr == null){
+            if (DmwsdlDMSAG.__outfault.indexSize == 0)
+                return(0);
+            else
+                return(DmwsdlDMSAG.__outfault.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a outfault value.
+     * @param value The LabelledFaultReference to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1320)
+    public DmcAttribute<?> delOutfault(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__outfault);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeLabelledFaultReferenceMV(DmwsdlDMSAG.__outfault), value);
+        else
+            attr = del(DmwsdlDMSAG.__outfault, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a outfault from the specified value.
+     * @param value LabelledFaultReference
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1336)
+    public DmcAttribute<?> delOutfault(LabelledFaultReference value) {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__outfault);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeLabelledFaultReferenceMV(DmwsdlDMSAG.__outfault), value);
+        else
+            attr = del(DmwsdlDMSAG.__outfault, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the outfault attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1355)
+    public void remOutfault(){
+         rem(DmwsdlDMSAG.__outfault);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:784)

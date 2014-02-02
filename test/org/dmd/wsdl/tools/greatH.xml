@@ -1,10 +1,40 @@
-<?xml version="1.0" encoding="utf-8" ?> 
-<!-- org.dmd.wsdl.server.extended.WsdlDescription.dumpAsXML(WsdlDescription.java:34)--> 
-<description
-    xmlns:null= "http://www.w3.org/ns/wsdl"
-    xmlns="http://greath.example.com/2004/wsdl/resSvc"
-    xmlns="http://greath.example.com/2004/schemas/resSvc"
-    xmlns="http://www.w3.org/ns/wsdl/soap"
-    xmlns="http://www.w3.org/2003/05/soap-envelope"
-    xmlns="http://www.w3.org/ns/wsdl-extensions"
-  >
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- org.dmd.wsdl.server.extended.WsdlDescription.toXML(WsdlDescription.java:50)-->
+<description targetNamespace="http://greath.example.com/2004/wsdl/resSvc"
+xmlns="http://www.w3.org/ns/wsdl" xmlns:tns="http://greath.example.com/2004/wsdl/resSvc"
+xmlns:ghns="http://greath.example.com/2004/schemas/resSvc" xmlns:wsoap="http://www.w3.org/ns/wsdl/soap"
+xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:wsdlx="http://www.w3.org/ns/wsdl-extensions">
+    <documentation> This document describes the GreatH Web service. Additional
+        application-level requirements for use of this service -- beyond
+        what WSDL 2.0 is able to describe -- are available at http://greath.example.com/2004/reservation-documentation.html
+        </documentation>
+    <types>
+        <!-- org.dmd.wsdl.server.extended.XsSchema.toXML(XsSchema.java:27)-->
+        <xs:schema targetNamespace="http://greath.example.com/2004/schemas/resSvc"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://greath.example.com/2004/schemas/resSvc">
+            <!-- org.dmd.wsdl.server.extended.XsComplexType.toXML(XsComplexType.java:26)-->
+            <xs:complexType name="tCheckAvailability">
+                <xs:sequence>
+                    <xs:element name="checkInDate" type="xs:date"> </xs:element>
+                    <xs:element name="checkOutDate" type="xs:date"> </xs:element>
+                    <xs:element name="roomType" type="xs:string"> </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </types>
+    <!-- org.dmd.wsdl.server.extended.WsdlInterface.toXML(WsdlInterface.java:26)-->
+    <interface name="reservationInterface">
+        <!-- org.dmd.wsdl.server.extended.WsdlFault.toXML(WsdlFault.java:24)-->
+        <fault name="invalidDataFault" element="ghns:invalidDataError"/>
+        <!-- org.dmd.wsdl.server.extended.WsdlOperation.toXML(WsdlOperation.java:28)-->
+        <operation name="opCheckAvailability" pattern="http://www.w3.org/ns/wsdl/in-out"
+        style="http://www.w3.org/ns/wsdl/style/iri">
+            <input messageLabel="In" element="ghns:checkAvailability"/>
+            <output messageLabel="Out" element="ghns:checkAvailabilityResponse"/>
+            <outfault ref="tns:invalidDataFault" messageLabel="Out"/>
+        </operation>
+    </interface>
+    <binding name="greathBinding" interface="tns:reservationInterface"
+    type="http://www.w3.org/ns/wsdl/soap" wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP/">
+        </binding>
+</description>

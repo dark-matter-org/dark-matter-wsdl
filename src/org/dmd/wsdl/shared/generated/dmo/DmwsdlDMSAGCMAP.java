@@ -11,13 +11,18 @@ import org.dmd.dmc.*;             // Basic DMC stuff - (DmoCompactSchemaFormatte
 public class DmwsdlDMSAGCMAP {
 
     static protected void initCmAp(HashMap<Integer, DmcClassInfo> _CmAp){
+        _CmAp.put(DmwsdlDMSAG.__WsdlBinding.id,DmwsdlDMSAG.__WsdlBinding);
         _CmAp.put(DmwsdlDMSAG.__WsdlDefinition.id,DmwsdlDMSAG.__WsdlDefinition);
         _CmAp.put(DmwsdlDMSAG.__WsdlDescription.id,DmwsdlDMSAG.__WsdlDescription);
+        _CmAp.put(DmwsdlDMSAG.__WsdlFault.id,DmwsdlDMSAG.__WsdlFault);
         _CmAp.put(DmwsdlDMSAG.__WsdlInterface.id,DmwsdlDMSAG.__WsdlInterface);
         _CmAp.put(DmwsdlDMSAG.__WsdlModule.id,DmwsdlDMSAG.__WsdlModule);
         _CmAp.put(DmwsdlDMSAG.__WsdlOperation.id,DmwsdlDMSAG.__WsdlOperation);
         _CmAp.put(DmwsdlDMSAG.__WsdlService.id,DmwsdlDMSAG.__WsdlService);
-        _CmAp.put(DmwsdlDMSAG.__XmlElement.id,DmwsdlDMSAG.__XmlElement);
+        _CmAp.put(DmwsdlDMSAG.__XsComplexType.id,DmwsdlDMSAG.__XsComplexType);
+        _CmAp.put(DmwsdlDMSAG.__XsElement.id,DmwsdlDMSAG.__XsElement);
+        _CmAp.put(DmwsdlDMSAG.__XsSchema.id,DmwsdlDMSAG.__XsSchema);
+        _CmAp.put(DmwsdlDMSAG.__XsType.id,DmwsdlDMSAG.__XsType);
     }
 
 }

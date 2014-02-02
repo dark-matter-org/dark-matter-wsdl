@@ -19,12 +19,17 @@ package org.dmd.wsdl.server.generated.dsd;
 // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:399)
 import java.util.Iterator;                                   // To provide iterators over definitions - (DSDArtifactFormatter.java:396)
 import org.dmd.dmc.types.DotName;                            // To support the find method for definitions - (DSDefinitionModule.java:163)
+import org.dmd.wsdl.server.extended.WsdlBinding;             // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
 import org.dmd.wsdl.server.extended.WsdlDefinition;          // A definition from the WsdlModule Module - (DSDefinitionModule.java:161)
 import org.dmd.wsdl.server.extended.WsdlDescription;         // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.WsdlFault;               // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
 import org.dmd.wsdl.server.extended.WsdlInterface;           // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
 import org.dmd.wsdl.server.extended.WsdlOperation;           // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
 import org.dmd.wsdl.server.extended.WsdlService;             // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
-import org.dmd.wsdl.server.extended.XmlElement;              // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.XsComplexType;           // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.XsElement;               // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.XsSchema;                // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.XsType;                  // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
 
 
 // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateScopedInterface(DSDArtifactFormatter.java:403)
@@ -37,10 +42,20 @@ public interface WsdlModuleScopedInterface {
     public WsdlDefinition getWsdlDefinition(DotName name);
     public Iterator<WsdlDefinition> getAllWsdlDefinition();
 
+    public void addWsdlBinding(WsdlBinding def);
+    public int getWsdlBindingCount();
+    public WsdlBinding getWsdlBinding(DotName name);
+    public Iterator<WsdlBinding> getAllWsdlBinding();
+
     public void addWsdlDescription(WsdlDescription def);
     public int getWsdlDescriptionCount();
     public WsdlDescription getWsdlDescription(DotName name);
     public Iterator<WsdlDescription> getAllWsdlDescription();
+
+    public void addWsdlFault(WsdlFault def);
+    public int getWsdlFaultCount();
+    public WsdlFault getWsdlFault(DotName name);
+    public Iterator<WsdlFault> getAllWsdlFault();
 
     public void addWsdlInterface(WsdlInterface def);
     public int getWsdlInterfaceCount();
@@ -57,10 +72,25 @@ public interface WsdlModuleScopedInterface {
     public WsdlService getWsdlService(DotName name);
     public Iterator<WsdlService> getAllWsdlService();
 
-    public void addXmlElement(XmlElement def);
-    public int getXmlElementCount();
-    public XmlElement getXmlElement(DotName name);
-    public Iterator<XmlElement> getAllXmlElement();
+    public void addXsComplexType(XsComplexType def);
+    public int getXsComplexTypeCount();
+    public XsComplexType getXsComplexType(DotName name);
+    public Iterator<XsComplexType> getAllXsComplexType();
+
+    public void addXsElement(XsElement def);
+    public int getXsElementCount();
+    public XsElement getXsElement(DotName name);
+    public Iterator<XsElement> getAllXsElement();
+
+    public void addXsSchema(XsSchema def);
+    public int getXsSchemaCount();
+    public XsSchema getXsSchema(DotName name);
+    public Iterator<XsSchema> getAllXsSchema();
+
+    public void addXsType(XsType def);
+    public int getXsTypeCount();
+    public XsType getXsType(DotName name);
+    public Iterator<XsType> getAllXsType();
 
 }
 

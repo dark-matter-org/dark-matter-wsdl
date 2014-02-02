@@ -29,15 +29,21 @@ import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;                     
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                           // Required for MODREC constructor - (GenUtility.java:227)
 import org.dmd.dms.generated.types.DmcTypeStringMV;                             // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                             // Required type - (GenUtility.java:328)
+import org.dmd.wsdl.shared.generated.dmo.WsdlBindingDMO;                        // Type specific set/add - (GenUtility.java:307)
 import org.dmd.wsdl.shared.generated.dmo.WsdlDefinitionDMO;                     // Base class - (GenUtility.java:355)
 import org.dmd.wsdl.shared.generated.dmo.WsdlInterfaceDMO;                      // Type specific set/add - (GenUtility.java:307)
 import org.dmd.wsdl.shared.generated.dmo.WsdlServiceDMO;                        // Type specific set/add - (GenUtility.java:307)
+import org.dmd.wsdl.shared.generated.dmo.XsSchemaDMO;                           // Type specific set/add - (GenUtility.java:307)
 import org.dmd.wsdl.shared.generated.types.DmcTypeNameSpaceReferenceMV;         // Required type - (GenUtility.java:328)
-import org.dmd.wsdl.shared.generated.types.DmcTypeWsdlInterfaceREFSV;           // Reference type - (GenUtility.java:300)
+import org.dmd.wsdl.shared.generated.types.DmcTypeWsdlBindingREFSV;             // Reference type - (GenUtility.java:300)
+import org.dmd.wsdl.shared.generated.types.DmcTypeWsdlInterfaceREFMV;           // Reference type - (GenUtility.java:300)
 import org.dmd.wsdl.shared.generated.types.DmcTypeWsdlServiceREFSV;             // Reference type - (GenUtility.java:300)
+import org.dmd.wsdl.shared.generated.types.DmcTypeXsSchemaREFSV;                // Reference type - (GenUtility.java:300)
 import org.dmd.wsdl.shared.generated.types.NameSpaceReference;                  // Primitive type and !auxiliary class - (GenUtility.java:271)
+import org.dmd.wsdl.shared.generated.types.WsdlBindingREF;                      // Helper class - (GenUtility.java:335)
 import org.dmd.wsdl.shared.generated.types.WsdlInterfaceREF;                    // Helper class - (GenUtility.java:335)
 import org.dmd.wsdl.shared.generated.types.WsdlServiceREF;                      // Helper class - (GenUtility.java:335)
+import org.dmd.wsdl.shared.generated.types.XsSchemaREF;                         // Helper class - (GenUtility.java:335)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
 /**
@@ -124,76 +130,111 @@ public class WsdlDescriptionDMO  extends WsdlDefinitionDMO  implements DmcNamedO
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:655)
-    public WsdlInterfaceREF getInterface(){
-        DmcTypeWsdlInterfaceREFSV attr = (DmcTypeWsdlInterfaceREFSV) get(DmwsdlDMSAG.__interface);
+    /**
+     * @return An Iterator of WsdlInterfaceDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:970)
+    public Iterator<WsdlInterfaceREF> getInterfaces(){
+        DmcTypeWsdlInterfaceREFMV attr = (DmcTypeWsdlInterfaceREFMV) get(DmwsdlDMSAG.__interfaces);
         if (attr == null)
-            return(null);
+            return( ((List<WsdlInterfaceREF>) Collections.EMPTY_LIST).iterator() );
 
         if (DmcOmni.instance().lazyResolution()){
             if (attr.doLazyResolution(this)){
                 rem(attr.getAttributeInfo());
-                return(null);
+                return( ((List<WsdlInterfaceREF>) Collections.EMPTY_LIST).iterator() );
             }
         }
 
-        return(attr.getSV());
+        return(attr.getMV());
     }
 
     /**
-     * Returns the reference to WsdlInterface without attempting lazy resolution (if turned on).
+     * @return An Iterator of WsdlInterfaceREFs without attempting lazy resolution (if it's turned on).
      */
-    public WsdlInterfaceREF getInterfaceREF(){
-        DmcTypeWsdlInterfaceREFSV attr = (DmcTypeWsdlInterfaceREFSV) get(DmwsdlDMSAG.__interface);
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:990)
+    public Iterator<WsdlInterfaceREF> getInterfacesREFs(){
+        DmcTypeWsdlInterfaceREFMV attr = (DmcTypeWsdlInterfaceREFMV) get(DmwsdlDMSAG.__interfaces);
         if (attr == null)
-            return(null);
+            return( ((List<WsdlInterfaceREF>) Collections.EMPTY_LIST).iterator() );
 
-        return(attr.getSV());
+        return(attr.getMV());
     }
 
     /**
-     * Sets interface to the specified value.
-     * @param value WsdlInterfaceDMO
+     * Adds another interfaces to the specified value.
+     * @param value WsdlInterface
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:709)
-    public void setInterface(WsdlInterfaceDMO value) {
-        DmcAttribute<?> attr = get(DmwsdlDMSAG.__interface);
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1004)
+    public DmcAttribute<?> addInterfaces(WsdlInterfaceDMO value) {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__interfaces);
         if (attr == null)
-            attr = new DmcTypeWsdlInterfaceREFSV(DmwsdlDMSAG.__interface);
-        else
-            ((DmcTypeWsdlInterfaceREFSV)attr).removeBackReferences();
+            attr = new DmcTypeWsdlInterfaceREFMV(DmwsdlDMSAG.__interfaces);
         
         try{
-            attr.set(value);
-            set(DmwsdlDMSAG.__interface,attr);
+            setLastValue(attr.add(value));
+            add(DmwsdlDMSAG.__interfaces,attr);
         }
         catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
         }
+        return(attr);
     }
 
     /**
-     * Sets interface to the specified value.
-     * @param value A value compatible with DmcTypeWsdlInterfaceREFSV
+     * Adds another interfaces value.
+     * @param value A value compatible with WsdlInterface
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:877)
-    public void setInterface(Object value) throws DmcValueException {
-        DmcTypeWsdlInterfaceREFSV attr  = (DmcTypeWsdlInterfaceREFSV) get(DmwsdlDMSAG.__interface);
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1245)
+    public DmcAttribute<?> addInterfaces(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__interfaces);
         if (attr == null)
-            attr = new DmcTypeWsdlInterfaceREFSV(DmwsdlDMSAG.__interface);
-        else
-            attr.removeBackReferences();
+            attr = new DmcTypeWsdlInterfaceREFMV(DmwsdlDMSAG.__interfaces);
         
-        attr.set(value);
-        set(DmwsdlDMSAG.__interface,attr);
+        setLastValue(attr.add(value));
+        add(DmwsdlDMSAG.__interfaces,attr);
+        return(attr);
     }
 
     /**
-     * Removes the interface attribute value.
+     * Returns the number of values in interfaces
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:897)
-    public void remInterface(){
-         rem(DmwsdlDMSAG.__interface);
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1262)
+    public int getInterfacesSize(){
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__interfaces);
+        if (attr == null){
+            if (DmwsdlDMSAG.__interfaces.indexSize == 0)
+                return(0);
+            else
+                return(DmwsdlDMSAG.__interfaces.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a interfaces value.
+     * @param value The WsdlInterface to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    public DmcAttribute<?> delInterfaces(Object value){
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__interfaces);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeWsdlInterfaceREFMV(DmwsdlDMSAG.__interfaces), value);
+        else
+            attr = del(DmwsdlDMSAG.__interfaces, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the interfaces attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1355)
+    public void remInterfaces(){
+         rem(DmwsdlDMSAG.__interfaces);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:655)
@@ -393,6 +434,78 @@ public class WsdlDescriptionDMO  extends WsdlDefinitionDMO  implements DmcNamedO
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1355)
     public void remDescription(){
          rem(MetaDMSAG.__description);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:655)
+    public XsSchemaREF getEmbedSchema(){
+        DmcTypeXsSchemaREFSV attr = (DmcTypeXsSchemaREFSV) get(DmwsdlDMSAG.__embedSchema);
+        if (attr == null)
+            return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Returns the reference to XsSchema without attempting lazy resolution (if turned on).
+     */
+    public XsSchemaREF getEmbedSchemaREF(){
+        DmcTypeXsSchemaREFSV attr = (DmcTypeXsSchemaREFSV) get(DmwsdlDMSAG.__embedSchema);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets embedSchema to the specified value.
+     * @param value XsSchemaDMO
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:709)
+    public void setEmbedSchema(XsSchemaDMO value) {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__embedSchema);
+        if (attr == null)
+            attr = new DmcTypeXsSchemaREFSV(DmwsdlDMSAG.__embedSchema);
+        else
+            ((DmcTypeXsSchemaREFSV)attr).removeBackReferences();
+        
+        try{
+            attr.set(value);
+            set(DmwsdlDMSAG.__embedSchema,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets embedSchema to the specified value.
+     * @param value A value compatible with DmcTypeXsSchemaREFSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:877)
+    public void setEmbedSchema(Object value) throws DmcValueException {
+        DmcTypeXsSchemaREFSV attr  = (DmcTypeXsSchemaREFSV) get(DmwsdlDMSAG.__embedSchema);
+        if (attr == null)
+            attr = new DmcTypeXsSchemaREFSV(DmwsdlDMSAG.__embedSchema);
+        else
+            attr.removeBackReferences();
+        
+        attr.set(value);
+        set(DmwsdlDMSAG.__embedSchema,attr);
+    }
+
+    /**
+     * Removes the embedSchema attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:897)
+    public void remEmbedSchema(){
+         rem(DmwsdlDMSAG.__embedSchema);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:784)
@@ -670,6 +783,78 @@ public class WsdlDescriptionDMO  extends WsdlDefinitionDMO  implements DmcNamedO
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:897)
     public void remServiceTitle(){
          rem(DmwsdlDMSAG.__serviceTitle);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:655)
+    public WsdlBindingREF getBinding(){
+        DmcTypeWsdlBindingREFSV attr = (DmcTypeWsdlBindingREFSV) get(DmwsdlDMSAG.__binding);
+        if (attr == null)
+            return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Returns the reference to WsdlBinding without attempting lazy resolution (if turned on).
+     */
+    public WsdlBindingREF getBindingREF(){
+        DmcTypeWsdlBindingREFSV attr = (DmcTypeWsdlBindingREFSV) get(DmwsdlDMSAG.__binding);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets binding to the specified value.
+     * @param value WsdlBindingDMO
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:709)
+    public void setBinding(WsdlBindingDMO value) {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__binding);
+        if (attr == null)
+            attr = new DmcTypeWsdlBindingREFSV(DmwsdlDMSAG.__binding);
+        else
+            ((DmcTypeWsdlBindingREFSV)attr).removeBackReferences();
+        
+        try{
+            attr.set(value);
+            set(DmwsdlDMSAG.__binding,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets binding to the specified value.
+     * @param value A value compatible with DmcTypeWsdlBindingREFSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:877)
+    public void setBinding(Object value) throws DmcValueException {
+        DmcTypeWsdlBindingREFSV attr  = (DmcTypeWsdlBindingREFSV) get(DmwsdlDMSAG.__binding);
+        if (attr == null)
+            attr = new DmcTypeWsdlBindingREFSV(DmwsdlDMSAG.__binding);
+        else
+            attr.removeBackReferences();
+        
+        attr.set(value);
+        set(DmwsdlDMSAG.__binding,attr);
+    }
+
+    /**
+     * Removes the binding attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:897)
+    public void remBinding(){
+         rem(DmwsdlDMSAG.__binding);
     }
 
 

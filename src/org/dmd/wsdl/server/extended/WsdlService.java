@@ -17,5 +17,11 @@ public class WsdlService extends WsdlServiceDMW {
         super(dmo,cd);
     }
 
+    public String toXML(){
+    	StringBuffer sb = new StringBuffer();
+    	
+    	return(sb.toString());
+    }
+
 }
 

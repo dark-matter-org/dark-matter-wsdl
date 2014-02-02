@@ -2,21 +2,23 @@ package org.dmd.wsdl.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import java.util.ArrayList;                                             // To support getMVCopy() - (BaseDMWGenerator.java:1181)
-import org.dmd.dmc.*;                                                   // If any attributes - (BaseDMWGenerator.java:1087)
-import org.dmd.dmc.definitions.DmcDefinitionIF;                         // The object is a domain specific definition - (BaseDMWGenerator.java:411)
-import org.dmd.dmc.types.DefinitionName;                                // Is named by - (BaseDMWGenerator.java:1062)
-import org.dmd.dms.ClassDefinition;                                     // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:1067)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                             // Required for MODREC constructor - (BaseDMWGenerator.java:1072)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor - (BaseDMWGenerator.java:1071)
-import org.dmd.wsdl.server.extended.WsdlDefinition;                     // Derived class - (BaseDMWGenerator.java:1248)
-import org.dmd.wsdl.server.extended.WsdlOperation;                      // Required for getModificationRecorder() - (BaseDMWGenerator.java:1076)
-import org.dmd.wsdl.server.extended.XmlElement;                         // Is reference type - (BaseDMWGenerator.java:1107)
-import org.dmd.wsdl.server.generated.dmw.XmlElementIterableDMW;         // For multi-valued XmlElement - (BaseDMWGenerator.java:1709)
-import org.dmd.wsdl.shared.generated.dmo.DmwsdlDMSAG;                   // Attribute input from the dmwsdl schema - (BaseDMWGenerator.java:897)
-import org.dmd.wsdl.shared.generated.dmo.WsdlOperationDMO;              // Class not auxiliary or abstract - (BaseDMWGenerator.java:1252)
-import org.dmd.wsdl.shared.generated.dmo.XmlElementDMO;                 // For multi-valued adds of XmlElement - (BaseDMWGenerator.java:1767)
-import org.dmd.wsdl.shared.generated.types.WsdlModuleREF;               // Required to access defined in module name - (DMWGenerator.java:180)
+import java.util.ArrayList;                                                           // Support for MULTI attribute - (BaseDMWGenerator.java:2226)
+import java.util.Iterator;                                                            // Support copy of MV objects - (BaseDMWGenerator.java:2240)
+import org.dmd.dmc.*;                                                                 // If any attributes - (BaseDMWGenerator.java:1087)
+import org.dmd.dmc.definitions.DmcDefinitionIF;                                       // The object is a domain specific definition - (BaseDMWGenerator.java:411)
+import org.dmd.dmc.types.DefinitionName;                                              // Is named by - (BaseDMWGenerator.java:1062)
+import org.dmd.dms.ClassDefinition;                                                   // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:1067)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor - (BaseDMWGenerator.java:1072)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (BaseDMWGenerator.java:1071)
+import org.dmd.wsdl.server.extended.WsdlDefinition;                                   // Derived class - (BaseDMWGenerator.java:1248)
+import org.dmd.wsdl.server.extended.WsdlOperation;                                    // Required for getModificationRecorder() - (BaseDMWGenerator.java:1076)
+import org.dmd.wsdl.server.generated.dmw.LabelledElementReferenceIterableDMW;         // For multi-valued LabelledElementReference - (BaseDMWGenerator.java:2103)
+import org.dmd.wsdl.server.generated.dmw.LabelledFaultReferenceIterableDMW;           // For multi-valued LabelledFaultReference - (BaseDMWGenerator.java:2103)
+import org.dmd.wsdl.shared.generated.dmo.DmwsdlDMSAG;                                 // Attribute input from the dmwsdl schema - (BaseDMWGenerator.java:897)
+import org.dmd.wsdl.shared.generated.dmo.WsdlOperationDMO;                            // Class not auxiliary or abstract - (BaseDMWGenerator.java:1252)
+import org.dmd.wsdl.shared.generated.types.LabelledElementReference;                  // Primitive type - (BaseDMWGenerator.java:1150)
+import org.dmd.wsdl.shared.generated.types.LabelledFaultReference;                    // Primitive type - (BaseDMWGenerator.java:1150)
+import org.dmd.wsdl.shared.generated.types.WsdlModuleREF;                             // Required to access defined in module name - (DMWGenerator.java:180)
 
 
 
@@ -92,7 +94,7 @@ abstract public class WsdlOperationDMW extends WsdlDefinition implements DmcDefi
     }
 
     /**
-     * @return The number of XmlElement items.
+     * @return The number of LabelledElementReference items.
      */
     // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1671)
     public int getInputSize(){
@@ -100,7 +102,7 @@ abstract public class WsdlOperationDMW extends WsdlDefinition implements DmcDefi
     }
 
     /**
-     * @return true if there are no XmlElementDMO items.
+     * @return true if there are no LabelledElementReferenceDMO items.
      */
     // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1679)
     public boolean getInputIsEmpty(){
@@ -110,7 +112,7 @@ abstract public class WsdlOperationDMW extends WsdlDefinition implements DmcDefi
     }
 
     /**
-     * @return true if there are any XmlElementDMO items.
+     * @return true if there are any LabelledElementReferenceDMO items.
      */
     // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1689)
     public boolean getInputHasValue(){
@@ -120,53 +122,80 @@ abstract public class WsdlOperationDMW extends WsdlDefinition implements DmcDefi
     }
 
     /**
-     * @return An Iterator of XmlElementDMO objects.
+     * @return An Iterator of LabelledElementReference objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1716)
-    public XmlElementIterableDMW getInputIterable(){
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2107)
+    public LabelledElementReferenceIterableDMW getInputIterable(){
         DmcAttribute<?> attr = core.get(DmwsdlDMSAG.__input);
         if (attr == null)
-            return(XmlElementIterableDMW.emptyList);
+            return(LabelledElementReferenceIterableDMW.emptyList);
         
-        return(new XmlElementIterableDMW(((WsdlOperationDMO) core).getInput()));
+        return(new LabelledElementReferenceIterableDMW(((WsdlOperationDMO) core).getInput()));
     }
 
     /**
      * Adds another input value.
-     * @param value A value compatible with XmlElement
+     * @param value A value compatible with LabelledElementReference
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1773)
-    public DmcAttribute<?> addInput(XmlElement value){
-        DmcAttribute<?> attr = ((WsdlOperationDMO) core).addInput(((XmlElementDMO)value.getDmcObject()));
-        return(attr);
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2133)
+    public void addInput(Object value) throws DmcValueException {
+        ((WsdlOperationDMO) core).addInput(value);
     }
 
     /**
-     * Deletes a input value.
-     * @param value The XmlElement to be deleted from set of attribute values.
+     * Adds another input value.
+     * @param value A value compatible with LabelledElementReference
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1823)
-    public void delInput(XmlElement value){
-        ((WsdlOperationDMO) core).delInput(value.getDMO());
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2143)
+    public void addInput(LabelledElementReference value){
+        ((WsdlOperationDMO) core).addInput(value);
     }
 
     /**
-     * @return A COPY of the collection of XmlElement objects.
+     * Returns true if the collection contains the input value.
+     * @param value A value compatible with LabelledElementReference
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1887)
-    public ArrayList<XmlElement> getInputCopy(){
-        DmcAttribute<?> attr = ((WsdlOperationDMO) core).get(DmwsdlDMSAG.__input);
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2200)
+    public boolean inputContains(LabelledElementReference value){
+        return(((WsdlOperationDMO) core).inputContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of LabelledElementReference objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2244)
+    @SuppressWarnings("unchecked")
+    public ArrayList<LabelledElementReference> getInputCopy(){
+        DmcAttribute<?> attr = core.get(DmwsdlDMSAG.__input);
         if (attr == null)
-            return(new ArrayList<XmlElement>());
+            return(new ArrayList<LabelledElementReference>());
         
-        ArrayList<XmlElement> rc = new ArrayList<XmlElement>(attr.getMVSize());
+        ArrayList<LabelledElementReference> rc = new ArrayList<LabelledElementReference>(attr.getMVSize());
         
-        XmlElementIterableDMW it = getInputIterable();
+        Iterator<LabelledElementReference> it = (Iterator<LabelledElementReference>) attr.getMV();
         while(it.hasNext()){
             rc.add(it.next());
         }
         
         return(rc);
+    }
+
+    /**
+     * Deletes a input value.
+     * @param value The LabelledElementReference to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2271)
+    public void delInput(Object value) throws DmcValueException {
+        ((WsdlOperationDMO) core).delInput(value);
+    }
+
+    /**
+     * Deletes a input value.
+     * @param value The LabelledElementReference to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2280)
+    public void delInput(LabelledElementReference value){
+        ((WsdlOperationDMO) core).delInput(value);
     }
 
     /**
@@ -209,7 +238,120 @@ abstract public class WsdlOperationDMW extends WsdlDefinition implements DmcDefi
     }
 
     /**
-     * @return The number of XmlElement items.
+     * @return The number of LabelledFaultReference items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1671)
+    public int getOutfaultSize(){
+        return(((WsdlOperationDMO) core).getOutfaultSize());
+    }
+
+    /**
+     * @return true if there are no LabelledFaultReferenceDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1679)
+    public boolean getOutfaultIsEmpty(){
+        if (((WsdlOperationDMO) core).getOutfaultSize() == 0)
+            return(true);
+        return(false);
+    }
+
+    /**
+     * @return true if there are any LabelledFaultReferenceDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1689)
+    public boolean getOutfaultHasValue(){
+        if (((WsdlOperationDMO) core).getOutfaultSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of LabelledFaultReference objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2107)
+    public LabelledFaultReferenceIterableDMW getOutfaultIterable(){
+        DmcAttribute<?> attr = core.get(DmwsdlDMSAG.__outfault);
+        if (attr == null)
+            return(LabelledFaultReferenceIterableDMW.emptyList);
+        
+        return(new LabelledFaultReferenceIterableDMW(((WsdlOperationDMO) core).getOutfault()));
+    }
+
+    /**
+     * Adds another outfault value.
+     * @param value A value compatible with LabelledFaultReference
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2133)
+    public void addOutfault(Object value) throws DmcValueException {
+        ((WsdlOperationDMO) core).addOutfault(value);
+    }
+
+    /**
+     * Adds another outfault value.
+     * @param value A value compatible with LabelledFaultReference
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2143)
+    public void addOutfault(LabelledFaultReference value){
+        ((WsdlOperationDMO) core).addOutfault(value);
+    }
+
+    /**
+     * Returns true if the collection contains the outfault value.
+     * @param value A value compatible with LabelledFaultReference
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2200)
+    public boolean outfaultContains(LabelledFaultReference value){
+        return(((WsdlOperationDMO) core).outfaultContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of LabelledFaultReference objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2244)
+    @SuppressWarnings("unchecked")
+    public ArrayList<LabelledFaultReference> getOutfaultCopy(){
+        DmcAttribute<?> attr = core.get(DmwsdlDMSAG.__outfault);
+        if (attr == null)
+            return(new ArrayList<LabelledFaultReference>());
+        
+        ArrayList<LabelledFaultReference> rc = new ArrayList<LabelledFaultReference>(attr.getMVSize());
+        
+        Iterator<LabelledFaultReference> it = (Iterator<LabelledFaultReference>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a outfault value.
+     * @param value The LabelledFaultReference to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2271)
+    public void delOutfault(Object value) throws DmcValueException {
+        ((WsdlOperationDMO) core).delOutfault(value);
+    }
+
+    /**
+     * Deletes a outfault value.
+     * @param value The LabelledFaultReference to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2280)
+    public void delOutfault(LabelledFaultReference value){
+        ((WsdlOperationDMO) core).delOutfault(value);
+    }
+
+    /**
+     * Removes the outfault attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2292)
+    public void remOutfault(){
+        ((WsdlOperationDMO) core).remOutfault();
+    }
+
+    /**
+     * @return The number of LabelledElementReference items.
      */
     // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1671)
     public int getOutputSize(){
@@ -217,7 +359,7 @@ abstract public class WsdlOperationDMW extends WsdlDefinition implements DmcDefi
     }
 
     /**
-     * @return true if there are no XmlElementDMO items.
+     * @return true if there are no LabelledElementReferenceDMO items.
      */
     // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1679)
     public boolean getOutputIsEmpty(){
@@ -227,7 +369,7 @@ abstract public class WsdlOperationDMW extends WsdlDefinition implements DmcDefi
     }
 
     /**
-     * @return true if there are any XmlElementDMO items.
+     * @return true if there are any LabelledElementReferenceDMO items.
      */
     // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1689)
     public boolean getOutputHasValue(){
@@ -237,53 +379,80 @@ abstract public class WsdlOperationDMW extends WsdlDefinition implements DmcDefi
     }
 
     /**
-     * @return An Iterator of XmlElementDMO objects.
+     * @return An Iterator of LabelledElementReference objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1716)
-    public XmlElementIterableDMW getOutputIterable(){
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2107)
+    public LabelledElementReferenceIterableDMW getOutputIterable(){
         DmcAttribute<?> attr = core.get(DmwsdlDMSAG.__output);
         if (attr == null)
-            return(XmlElementIterableDMW.emptyList);
+            return(LabelledElementReferenceIterableDMW.emptyList);
         
-        return(new XmlElementIterableDMW(((WsdlOperationDMO) core).getOutput()));
+        return(new LabelledElementReferenceIterableDMW(((WsdlOperationDMO) core).getOutput()));
     }
 
     /**
      * Adds another output value.
-     * @param value A value compatible with XmlElement
+     * @param value A value compatible with LabelledElementReference
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1773)
-    public DmcAttribute<?> addOutput(XmlElement value){
-        DmcAttribute<?> attr = ((WsdlOperationDMO) core).addOutput(((XmlElementDMO)value.getDmcObject()));
-        return(attr);
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2133)
+    public void addOutput(Object value) throws DmcValueException {
+        ((WsdlOperationDMO) core).addOutput(value);
     }
 
     /**
-     * Deletes a output value.
-     * @param value The XmlElement to be deleted from set of attribute values.
+     * Adds another output value.
+     * @param value A value compatible with LabelledElementReference
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1823)
-    public void delOutput(XmlElement value){
-        ((WsdlOperationDMO) core).delOutput(value.getDMO());
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2143)
+    public void addOutput(LabelledElementReference value){
+        ((WsdlOperationDMO) core).addOutput(value);
     }
 
     /**
-     * @return A COPY of the collection of XmlElement objects.
+     * Returns true if the collection contains the output value.
+     * @param value A value compatible with LabelledElementReference
      */
-    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1887)
-    public ArrayList<XmlElement> getOutputCopy(){
-        DmcAttribute<?> attr = ((WsdlOperationDMO) core).get(DmwsdlDMSAG.__output);
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2200)
+    public boolean outputContains(LabelledElementReference value){
+        return(((WsdlOperationDMO) core).outputContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of LabelledElementReference objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2244)
+    @SuppressWarnings("unchecked")
+    public ArrayList<LabelledElementReference> getOutputCopy(){
+        DmcAttribute<?> attr = core.get(DmwsdlDMSAG.__output);
         if (attr == null)
-            return(new ArrayList<XmlElement>());
+            return(new ArrayList<LabelledElementReference>());
         
-        ArrayList<XmlElement> rc = new ArrayList<XmlElement>(attr.getMVSize());
+        ArrayList<LabelledElementReference> rc = new ArrayList<LabelledElementReference>(attr.getMVSize());
         
-        XmlElementIterableDMW it = getOutputIterable();
+        Iterator<LabelledElementReference> it = (Iterator<LabelledElementReference>) attr.getMV();
         while(it.hasNext()){
             rc.add(it.next());
         }
         
         return(rc);
+    }
+
+    /**
+     * Deletes a output value.
+     * @param value The LabelledElementReference to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2271)
+    public void delOutput(Object value) throws DmcValueException {
+        ((WsdlOperationDMO) core).delOutput(value);
+    }
+
+    /**
+     * Deletes a output value.
+     * @param value The LabelledElementReference to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2280)
+    public void delOutput(LabelledElementReference value){
+        ((WsdlOperationDMO) core).delOutput(value);
     }
 
     /**

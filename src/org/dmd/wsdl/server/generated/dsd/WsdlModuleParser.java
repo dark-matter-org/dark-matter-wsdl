@@ -34,13 +34,18 @@ import org.dmd.util.exceptions.ResultException;                             // M
 import org.dmd.util.parsing.ConfigLocation;                                 // Config file location info - (DSDArtifactFormatter.java:432)
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;                       // Basic parsing of objects - (DSDArtifactFormatter.java:429)
 import org.dmd.util.parsing.DmcUncheckedOIFParser;                          // Basic parsing of objects - (DSDArtifactFormatter.java:428)
+import org.dmd.wsdl.server.extended.WsdlBinding;                            // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
 import org.dmd.wsdl.server.extended.WsdlDefinition;                         // The base definition from the WsdlModule Module - (DSDArtifactFormatter.java:707)
 import org.dmd.wsdl.server.extended.WsdlDescription;                        // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
+import org.dmd.wsdl.server.extended.WsdlFault;                              // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
 import org.dmd.wsdl.server.extended.WsdlInterface;                          // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
 import org.dmd.wsdl.server.extended.WsdlModule;                             // The kind of DDM we're reading - (DSDArtifactFormatter.java:458)
 import org.dmd.wsdl.server.extended.WsdlOperation;                          // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
 import org.dmd.wsdl.server.extended.WsdlService;                            // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
-import org.dmd.wsdl.server.extended.XmlElement;                             // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
+import org.dmd.wsdl.server.extended.XsComplexType;                          // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
+import org.dmd.wsdl.server.extended.XsElement;                              // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
+import org.dmd.wsdl.server.extended.XsSchema;                               // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
+import org.dmd.wsdl.server.extended.XsType;                                 // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
 import org.dmd.wsdl.server.generated.DmwsdlSchemaAG;                        // The schema recognized by this parser - (DSDArtifactFormatter.java:446)
 import org.dmd.wsdl.server.generated.dsd.WsdlModuleGlobalInterface;         // Interface to our definition storage - (DSDArtifactFormatter.java:434)
 
@@ -187,9 +192,17 @@ public class WsdlModuleParser implements DsdParserInterface, DmcUncheckedOIFHand
             definition.setDotName(module.getName() + "." + definition.getName() + "." + definition.getConstructionClassName());
             definition.setNameAndTypeName(definition.getName() + "." + definition.getConstructionClassName());
             
-            if (definition instanceof WsdlDescription){
+            if (definition instanceof WsdlBinding){
+                definitions.addWsdlBinding((WsdlBinding)definition);
+                module.addWsdlBinding((WsdlBinding)definition);
+            }
+            else if (definition instanceof WsdlDescription){
                 definitions.addWsdlDescription((WsdlDescription)definition);
                 module.addWsdlDescription((WsdlDescription)definition);
+            }
+            else if (definition instanceof WsdlFault){
+                definitions.addWsdlFault((WsdlFault)definition);
+                module.addWsdlFault((WsdlFault)definition);
             }
             else if (definition instanceof WsdlInterface){
                 definitions.addWsdlInterface((WsdlInterface)definition);
@@ -203,9 +216,21 @@ public class WsdlModuleParser implements DsdParserInterface, DmcUncheckedOIFHand
                 definitions.addWsdlService((WsdlService)definition);
                 module.addWsdlService((WsdlService)definition);
             }
-            else if (definition instanceof XmlElement){
-                definitions.addXmlElement((XmlElement)definition);
-                module.addXmlElement((XmlElement)definition);
+            else if (definition instanceof XsComplexType){
+                definitions.addXsComplexType((XsComplexType)definition);
+                module.addXsComplexType((XsComplexType)definition);
+            }
+            else if (definition instanceof XsElement){
+                definitions.addXsElement((XsElement)definition);
+                module.addXsElement((XsElement)definition);
+            }
+            else if (definition instanceof XsSchema){
+                definitions.addXsSchema((XsSchema)definition);
+                module.addXsSchema((XsSchema)definition);
+            }
+            else if (definition instanceof XsType){
+                definitions.addXsType((XsType)definition);
+                module.addXsType((XsType)definition);
             }
 
         }
