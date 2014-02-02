@@ -2,7 +2,7 @@ package org.dmd.wsdl.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
-import java.util.ArrayList;                                                     // Support for MULTI attribute - (BaseDMWGenerator.java:2226)
+import java.util.ArrayList;                                                     // To support getMVCopy() - (BaseDMWGenerator.java:1181)
 import java.util.Iterator;                                                      // Support copy of MV objects - (BaseDMWGenerator.java:2240)
 import org.dmd.dmc.*;                                                           // If any attributes - (BaseDMWGenerator.java:1087)
 import org.dmd.dmc.definitions.DmcDefinitionIF;                                 // The object is a domain specific definition - (BaseDMWGenerator.java:411)
@@ -11,17 +11,22 @@ import org.dmd.dms.ClassDefinition;                                             
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                     // Attribute description from the meta schema - (BaseDMWGenerator.java:897)
 import org.dmd.dms.generated.dmw.StringIterableDMW;                             // For multi-valued String - (BaseDMWGenerator.java:2103)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                           // Required for MODREC constructor - (BaseDMWGenerator.java:1071)
+import org.dmd.wsdl.server.extended.WsdlBinding;                                // Is reference type - (BaseDMWGenerator.java:1107)
 import org.dmd.wsdl.server.extended.WsdlDefinition;                             // Derived class - (BaseDMWGenerator.java:1248)
 import org.dmd.wsdl.server.extended.WsdlDescription;                            // Required for getModificationRecorder() - (BaseDMWGenerator.java:1076)
 import org.dmd.wsdl.server.extended.WsdlInterface;                              // Is reference type - (BaseDMWGenerator.java:1107)
 import org.dmd.wsdl.server.extended.WsdlService;                                // Is reference type - (BaseDMWGenerator.java:1107)
+import org.dmd.wsdl.server.extended.XsSchema;                                   // Is reference type - (BaseDMWGenerator.java:1107)
 import org.dmd.wsdl.server.generated.dmw.NameSpaceReferenceIterableDMW;         // For multi-valued NameSpaceReference - (BaseDMWGenerator.java:2103)
-import org.dmd.wsdl.shared.generated.dmo.DmwsdlDMSAG;                           // Attribute nameSpace from the dmwsdl schema - (BaseDMWGenerator.java:897)
+import org.dmd.wsdl.server.generated.dmw.WsdlInterfaceIterableDMW;              // For multi-valued WsdlInterface - (BaseDMWGenerator.java:1709)
+import org.dmd.wsdl.shared.generated.dmo.DmwsdlDMSAG;                           // Attribute interfaces from the dmwsdl schema - (BaseDMWGenerator.java:897)
 import org.dmd.wsdl.shared.generated.dmo.WsdlDescriptionDMO;                    // Class not auxiliary or abstract - (BaseDMWGenerator.java:1252)
+import org.dmd.wsdl.shared.generated.dmo.WsdlInterfaceDMO;                      // For multi-valued adds of WsdlInterface - (BaseDMWGenerator.java:1767)
 import org.dmd.wsdl.shared.generated.types.NameSpaceReference;                  // Primitive type - (BaseDMWGenerator.java:1150)
-import org.dmd.wsdl.shared.generated.types.WsdlInterfaceREF;                    // Is reference type REF - (BaseDMWGenerator.java:1115)
+import org.dmd.wsdl.shared.generated.types.WsdlBindingREF;                      // Is reference type REF - (BaseDMWGenerator.java:1115)
 import org.dmd.wsdl.shared.generated.types.WsdlModuleREF;                       // Required to access defined in module name - (DMWGenerator.java:180)
 import org.dmd.wsdl.shared.generated.types.WsdlServiceREF;                      // Is reference type REF - (BaseDMWGenerator.java:1115)
+import org.dmd.wsdl.shared.generated.types.XsSchemaREF;                         // Is reference type REF - (BaseDMWGenerator.java:1115)
 
 
 
@@ -91,6 +96,47 @@ abstract public class WsdlDescriptionDMW extends WsdlDefinition implements DmcDe
             return( getObjectName().equals( ((WsdlDescriptionDMW) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    /**
+     * @return A WsdlBinding object.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1434)
+    public WsdlBinding getBinding(){
+        WsdlBindingREF ref = ((WsdlDescriptionDMO) core).getBinding();
+        if (ref == null)
+            return(null);
+        
+        if (ref.getObject() == null)
+            return(null);
+        
+        return((WsdlBinding)ref.getObject().getContainer());
+    }
+
+    /**
+     * Sets the binding to the specified value.
+     * @param value A value compatible with WsdlBindingREF
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1519)
+    public void setBinding(WsdlBinding value) {
+        ((WsdlDescriptionDMO) core).setBinding(value.getDMO());
+    }
+
+    /**
+     * Sets the binding to the specified value.
+     * @param value A value compatible with WsdlBindingREF
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1528)
+    public void setBinding(Object value) throws DmcValueException {
+        ((WsdlDescriptionDMO) core).setBinding(value);
+    }
+
+    /**
+     * Removes the binding attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
+    public void remBinding(){
+        ((WsdlDescriptionDMO) core).remBinding();
     }
 
     /**
@@ -207,44 +253,130 @@ abstract public class WsdlDescriptionDMW extends WsdlDefinition implements DmcDe
     }
 
     /**
-     * @return A WsdlInterface object.
+     * @return A XsSchema object.
      */
     // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1434)
-    public WsdlInterface getInterface(){
-        WsdlInterfaceREF ref = ((WsdlDescriptionDMO) core).getInterface();
+    public XsSchema getEmbedSchema(){
+        XsSchemaREF ref = ((WsdlDescriptionDMO) core).getEmbedSchema();
         if (ref == null)
             return(null);
         
         if (ref.getObject() == null)
             return(null);
         
-        return((WsdlInterface)ref.getObject().getContainer());
+        return((XsSchema)ref.getObject().getContainer());
     }
 
     /**
-     * Sets the interface to the specified value.
-     * @param value A value compatible with WsdlInterfaceREF
+     * Sets the embedSchema to the specified value.
+     * @param value A value compatible with XsSchemaREF
      */
     // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1519)
-    public void setInterface(WsdlInterface value) {
-        ((WsdlDescriptionDMO) core).setInterface(value.getDMO());
+    public void setEmbedSchema(XsSchema value) {
+        ((WsdlDescriptionDMO) core).setEmbedSchema(value.getDMO());
     }
 
     /**
-     * Sets the interface to the specified value.
-     * @param value A value compatible with WsdlInterfaceREF
+     * Sets the embedSchema to the specified value.
+     * @param value A value compatible with XsSchemaREF
      */
     // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1528)
-    public void setInterface(Object value) throws DmcValueException {
-        ((WsdlDescriptionDMO) core).setInterface(value);
+    public void setEmbedSchema(Object value) throws DmcValueException {
+        ((WsdlDescriptionDMO) core).setEmbedSchema(value);
     }
 
     /**
-     * Removes the interface attribute value.
+     * Removes the embedSchema attribute value.
      */
     // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
-    public void remInterface(){
-        ((WsdlDescriptionDMO) core).remInterface();
+    public void remEmbedSchema(){
+        ((WsdlDescriptionDMO) core).remEmbedSchema();
+    }
+
+    /**
+     * @return The number of WsdlInterface items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1671)
+    public int getInterfacesSize(){
+        return(((WsdlDescriptionDMO) core).getInterfacesSize());
+    }
+
+    /**
+     * @return true if there are no WsdlInterfaceDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1679)
+    public boolean getInterfacesIsEmpty(){
+        if (((WsdlDescriptionDMO) core).getInterfacesSize() == 0)
+            return(true);
+        return(false);
+    }
+
+    /**
+     * @return true if there are any WsdlInterfaceDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1689)
+    public boolean getInterfacesHasValue(){
+        if (((WsdlDescriptionDMO) core).getInterfacesSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of WsdlInterfaceDMO objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1716)
+    public WsdlInterfaceIterableDMW getInterfacesIterable(){
+        DmcAttribute<?> attr = core.get(DmwsdlDMSAG.__interfaces);
+        if (attr == null)
+            return(WsdlInterfaceIterableDMW.emptyList);
+        
+        return(new WsdlInterfaceIterableDMW(((WsdlDescriptionDMO) core).getInterfaces()));
+    }
+
+    /**
+     * Adds another interfaces value.
+     * @param value A value compatible with WsdlInterface
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1773)
+    public DmcAttribute<?> addInterfaces(WsdlInterface value){
+        DmcAttribute<?> attr = ((WsdlDescriptionDMO) core).addInterfaces(((WsdlInterfaceDMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * Deletes a interfaces value.
+     * @param value The WsdlInterface to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1823)
+    public void delInterfaces(WsdlInterface value){
+        ((WsdlDescriptionDMO) core).delInterfaces(value.getDMO());
+    }
+
+    /**
+     * @return A COPY of the collection of WsdlInterface objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1887)
+    public ArrayList<WsdlInterface> getInterfacesCopy(){
+        DmcAttribute<?> attr = ((WsdlDescriptionDMO) core).get(DmwsdlDMSAG.__interfaces);
+        if (attr == null)
+            return(new ArrayList<WsdlInterface>());
+        
+        ArrayList<WsdlInterface> rc = new ArrayList<WsdlInterface>(attr.getMVSize());
+        
+        WsdlInterfaceIterableDMW it = getInterfacesIterable();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Removes the interfaces attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2292)
+    public void remInterfaces(){
+        ((WsdlDescriptionDMO) core).remInterfaces();
     }
 
     // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)

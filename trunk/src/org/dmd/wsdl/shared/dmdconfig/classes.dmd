@@ -22,9 +22,11 @@ must			name
 must			nameSpace
 must			targetNameSpace
 must			serviceTitle
-may				interface
+must			binding
+may				interfaces
 may				service
 may				description
+may				embedSchema
 description		The WsdlDescription defines a web service.
 
 
@@ -37,6 +39,7 @@ derivedFrom		WsdlDefinition
 isNamedBy		name
 must			name
 must			operations
+may				faults
 description		A WSDL 2.0 interface defines the abstract interface of a Web service as a set of abstract
  operations, each operation representing a simple interaction between the client and the service.
  Each operation specifies the types of messages that the service can send or receive as part of that operation.
@@ -53,6 +56,7 @@ may				pattern
 may				style
 may				input
 may				output
+may				outfault
 description 	Each WsdlOperation specifies the types of messages that the service can send or receive as
  part of that operation. Each operation also specifies a message exchange pattern that indicates the sequence
  in which the associated messages are to be transmitted between the parties.
@@ -71,16 +75,77 @@ description		A WsdlService specifies a single interface that the service will su
  A service is only permitted to have one interface.
 
 ClassDefinition
-name			XmlElement
+name			XsElement
 classType   	STRUCTURAL
 dmdID			7
 derivedFrom		WsdlDefinition
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
-must			type
+must			xstype
 description		This is representative of an XML schema element, which pretty much aligns to a dark-matter
  attribute definition. I've cheated a bit by defining it here as a part of this DSL. In reality, there would
  be a separate XML schema DSL (lets call it XmlSchemaModule) that the WsdlModule would indicate via the
  refersToDefsFromDSD attribute.
+
+ClassDefinition
+name			WsdlBinding
+classType   	STRUCTURAL
+dmdID			8
+derivedFrom		WsdlDefinition
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+must			interface
+must			bindingType
+must			protocol
+description		A binding specifies concrete message format and transmission protocol details for an interface,
+ and must supply such details for every operation and fault in the interface.
+
+ClassDefinition
+name			WsdlFault
+classType   	STRUCTURAL
+dmdID			9
+derivedFrom		WsdlDefinition
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+must			element
+
+ClassDefinition
+name			XsSchema
+classType   	STRUCTURAL
+dmdID			10
+derivedFrom		WsdlDefinition
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+must			nameSpace
+must			targetNameSpace
+may				xstypes
+may				elements
+description		A placeholder to represent an XML schema specification - this would be defined as
+ a separate set of definitions in reality.
+
+ClassDefinition
+name			XsType
+classType   	STRUCTURAL
+dmdID			11
+derivedFrom		WsdlDefinition
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+may				prefix
+description		A placeholder class for a type defined as part of an XsSchema
+
+ClassDefinition
+name			XsComplexType
+classType   	STRUCTURAL
+dmdID			12
+derivedFrom		XsType
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+must			elements
+description		A complex type composed of other, previously defined elements.
 

@@ -12,7 +12,98 @@ nameSpace		http://www.w3.org/2003/05/soap-envelope			soap
 nameSpace		http://www.w3.org/ns/wsdl-extensions			wsdlx
 targetNameSpace	http://greath.example.com/2004/wsdl/resSvc
 serviceTitle	Great H Web Service
-description		This document describes the GreatH Web service.  Additional 
- application-level requirements for use of this service -- 
- beyond what WSDL 2.0 is able to describe -- are available 
+embedSchema		greathSchema
+interfaces		reservationInterface
+binding			greathBinding
+description		This document describes the GreatH Web service.  Additional
+ application-level requirements for use of this service --
+ beyond what WSDL 2.0 is able to describe -- are available
  at http://greath.example.com/2004/reservation-documentation.html
+
+WsdlInterface
+name			reservationInterface
+operations		opCheckAvailability
+faults			invalidDataFault
+description		This interface allows clients to check the availability of rooms.
+
+WsdlFault
+name			invalidDataFault
+element			ghns invalidDataError
+
+WsdlOperation
+name			opCheckAvailability
+pattern			http://www.w3.org/ns/wsdl/in-out
+style			http://www.w3.org/ns/wsdl/style/iri
+input			ghns checkAvailability In
+output			ghns checkAvailabilityResponse Out
+outfault		tns invalidDataFault Out
+description		This operation allows the client to determine the availability of rooms within the
+ specified range of dates.
+
+WsdlBinding
+name			greathBinding
+interface		tns reservationInterface
+bindingType		http://www.w3.org/ns/wsdl/soap
+protocol		wsoap http://www.w3.org/2003/05/soap/bindings/HTTP/
+
+XsType
+name			date
+prefix			xs
+description		A fake definition for the xs date type.
+
+XsType
+name			string
+prefix			xs
+description		A fake definition for the xs string type.
+
+XsType
+name			double
+prefix			xs
+description		A fake definition for the xs double type.
+
+XsElement
+name			checkInDate
+xstype			date
+description		When a guest expects to check in.
+
+XsElement
+name			checkOutDate
+xstype			date
+description		When a guest expects to check out.
+
+XsElement
+name			roomType
+xstype			string
+description		The type of room a guest wants.
+
+XsComplexType
+name 			tCheckAvailability
+elements		checkInDate
+elements		checkOutDate
+elements		roomType
+description		
+
+XsElement
+name			checkAvailability
+xstype			tCheckAvailability
+description		The type of room a guest wants.
+
+XsElement
+name			checkAvailabilityResponse
+xstype			double
+description		The number of rooms available.
+
+XsElement
+name			invalidDataError
+xstype			string
+description		An error indication.
+
+XsSchema
+name			greathSchema
+nameSpace		http://www.w3.org/2001/XMLSchema	xs
+nameSpace		http://greath.example.com/2004/schemas/resSvc
+targetNameSpace	http://greath.example.com/2004/schemas/resSvc
+xstypes			tCheckAvailability
+elements		checkAvailability
+elements		checkAvailabilityResponse
+elements		invalidDataError

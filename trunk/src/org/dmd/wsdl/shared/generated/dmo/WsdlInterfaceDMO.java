@@ -17,6 +17,7 @@ package org.dmd.wsdl.shared.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:396)
 import java.io.Serializable;                                                  // Always required - (GenUtility.java:224)
+import java.util.*;                                                           // Always required if we have any MV attributes - (GenUtility.java:221)
 import org.dmd.dmc.DmcAttribute;                                              // Named object - (GenUtility.java:376)
 import org.dmd.dmc.DmcNamedObjectIF;                                          // Named object - (GenUtility.java:375)
 import org.dmd.dmc.DmcOmni;                                                   // Lazy resolution - (GenUtility.java:320)
@@ -27,8 +28,11 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                                   //
 import org.dmd.dms.generated.types.DmcTypeDefinitionNameSV;                   // Required type - (GenUtility.java:328)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (GenUtility.java:227)
 import org.dmd.wsdl.shared.generated.dmo.WsdlDefinitionDMO;                   // Base class - (GenUtility.java:355)
+import org.dmd.wsdl.shared.generated.dmo.WsdlFaultDMO;                        // Type specific set/add - (GenUtility.java:307)
 import org.dmd.wsdl.shared.generated.dmo.WsdlOperationDMO;                    // Type specific set/add - (GenUtility.java:307)
-import org.dmd.wsdl.shared.generated.types.DmcTypeWsdlOperationREFSV;         // Reference type - (GenUtility.java:300)
+import org.dmd.wsdl.shared.generated.types.DmcTypeWsdlFaultREFMV;             // Reference type - (GenUtility.java:300)
+import org.dmd.wsdl.shared.generated.types.DmcTypeWsdlOperationREFMV;         // Reference type - (GenUtility.java:300)
+import org.dmd.wsdl.shared.generated.types.WsdlFaultREF;                      // Helper class - (GenUtility.java:335)
 import org.dmd.wsdl.shared.generated.types.WsdlOperationREF;                  // Helper class - (GenUtility.java:335)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:677)
@@ -120,6 +124,113 @@ public class WsdlInterfaceDMO  extends WsdlDefinitionDMO  implements DmcNamedObj
         return(objn.hashCode());
     }
 
+    /**
+     * @return An Iterator of WsdlFaultDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:970)
+    public Iterator<WsdlFaultREF> getFaults(){
+        DmcTypeWsdlFaultREFMV attr = (DmcTypeWsdlFaultREFMV) get(DmwsdlDMSAG.__faults);
+        if (attr == null)
+            return( ((List<WsdlFaultREF>) Collections.EMPTY_LIST).iterator() );
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return( ((List<WsdlFaultREF>) Collections.EMPTY_LIST).iterator() );
+            }
+        }
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return An Iterator of WsdlFaultREFs without attempting lazy resolution (if it's turned on).
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:990)
+    public Iterator<WsdlFaultREF> getFaultsREFs(){
+        DmcTypeWsdlFaultREFMV attr = (DmcTypeWsdlFaultREFMV) get(DmwsdlDMSAG.__faults);
+        if (attr == null)
+            return( ((List<WsdlFaultREF>) Collections.EMPTY_LIST).iterator() );
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another faults to the specified value.
+     * @param value WsdlFault
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1004)
+    public DmcAttribute<?> addFaults(WsdlFaultDMO value) {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__faults);
+        if (attr == null)
+            attr = new DmcTypeWsdlFaultREFMV(DmwsdlDMSAG.__faults);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(DmwsdlDMSAG.__faults,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Adds another faults value.
+     * @param value A value compatible with WsdlFault
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1245)
+    public DmcAttribute<?> addFaults(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__faults);
+        if (attr == null)
+            attr = new DmcTypeWsdlFaultREFMV(DmwsdlDMSAG.__faults);
+        
+        setLastValue(attr.add(value));
+        add(DmwsdlDMSAG.__faults,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in faults
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1262)
+    public int getFaultsSize(){
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__faults);
+        if (attr == null){
+            if (DmwsdlDMSAG.__faults.indexSize == 0)
+                return(0);
+            else
+                return(DmwsdlDMSAG.__faults.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a faults value.
+     * @param value The WsdlFault to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    public DmcAttribute<?> delFaults(Object value){
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__faults);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeWsdlFaultREFMV(DmwsdlDMSAG.__faults), value);
+        else
+            attr = del(DmwsdlDMSAG.__faults, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the faults attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1355)
+    public void remFaults(){
+         rem(DmwsdlDMSAG.__faults);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:784)
     public DefinitionName getName(){
         DmcTypeDefinitionNameSV attr = (DmcTypeDefinitionNameSV) get(MetaDMSAG.__name);
@@ -170,74 +281,109 @@ public class WsdlInterfaceDMO  extends WsdlDefinitionDMO  implements DmcNamedObj
          rem(MetaDMSAG.__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:655)
-    public WsdlOperationREF getOperations(){
-        DmcTypeWsdlOperationREFSV attr = (DmcTypeWsdlOperationREFSV) get(DmwsdlDMSAG.__operations);
+    /**
+     * @return An Iterator of WsdlOperationDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:970)
+    public Iterator<WsdlOperationREF> getOperations(){
+        DmcTypeWsdlOperationREFMV attr = (DmcTypeWsdlOperationREFMV) get(DmwsdlDMSAG.__operations);
         if (attr == null)
-            return(null);
+            return( ((List<WsdlOperationREF>) Collections.EMPTY_LIST).iterator() );
 
         if (DmcOmni.instance().lazyResolution()){
             if (attr.doLazyResolution(this)){
                 rem(attr.getAttributeInfo());
-                return(null);
+                return( ((List<WsdlOperationREF>) Collections.EMPTY_LIST).iterator() );
             }
         }
 
-        return(attr.getSV());
+        return(attr.getMV());
     }
 
     /**
-     * Returns the reference to WsdlOperation without attempting lazy resolution (if turned on).
+     * @return An Iterator of WsdlOperationREFs without attempting lazy resolution (if it's turned on).
      */
-    public WsdlOperationREF getOperationsREF(){
-        DmcTypeWsdlOperationREFSV attr = (DmcTypeWsdlOperationREFSV) get(DmwsdlDMSAG.__operations);
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:990)
+    public Iterator<WsdlOperationREF> getOperationsREFs(){
+        DmcTypeWsdlOperationREFMV attr = (DmcTypeWsdlOperationREFMV) get(DmwsdlDMSAG.__operations);
         if (attr == null)
-            return(null);
+            return( ((List<WsdlOperationREF>) Collections.EMPTY_LIST).iterator() );
 
-        return(attr.getSV());
+        return(attr.getMV());
     }
 
     /**
-     * Sets operations to the specified value.
-     * @param value WsdlOperationDMO
+     * Adds another operations to the specified value.
+     * @param value WsdlOperation
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:709)
-    public void setOperations(WsdlOperationDMO value) {
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1004)
+    public DmcAttribute<?> addOperations(WsdlOperationDMO value) {
         DmcAttribute<?> attr = get(DmwsdlDMSAG.__operations);
         if (attr == null)
-            attr = new DmcTypeWsdlOperationREFSV(DmwsdlDMSAG.__operations);
-        else
-            ((DmcTypeWsdlOperationREFSV)attr).removeBackReferences();
+            attr = new DmcTypeWsdlOperationREFMV(DmwsdlDMSAG.__operations);
         
         try{
-            attr.set(value);
-            set(DmwsdlDMSAG.__operations,attr);
+            setLastValue(attr.add(value));
+            add(DmwsdlDMSAG.__operations,attr);
         }
         catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
         }
+        return(attr);
     }
 
     /**
-     * Sets operations to the specified value.
-     * @param value A value compatible with DmcTypeWsdlOperationREFSV
+     * Adds another operations value.
+     * @param value A value compatible with WsdlOperation
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:877)
-    public void setOperations(Object value) throws DmcValueException {
-        DmcTypeWsdlOperationREFSV attr  = (DmcTypeWsdlOperationREFSV) get(DmwsdlDMSAG.__operations);
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1245)
+    public DmcAttribute<?> addOperations(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__operations);
         if (attr == null)
-            attr = new DmcTypeWsdlOperationREFSV(DmwsdlDMSAG.__operations);
-        else
-            attr.removeBackReferences();
+            attr = new DmcTypeWsdlOperationREFMV(DmwsdlDMSAG.__operations);
         
-        attr.set(value);
-        set(DmwsdlDMSAG.__operations,attr);
+        setLastValue(attr.add(value));
+        add(DmwsdlDMSAG.__operations,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in operations
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1262)
+    public int getOperationsSize(){
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__operations);
+        if (attr == null){
+            if (DmwsdlDMSAG.__operations.indexSize == 0)
+                return(0);
+            else
+                return(DmwsdlDMSAG.__operations.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a operations value.
+     * @param value The WsdlOperation to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1301)
+    public DmcAttribute<?> delOperations(Object value){
+        DmcAttribute<?> attr = get(DmwsdlDMSAG.__operations);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeWsdlOperationREFMV(DmwsdlDMSAG.__operations), value);
+        else
+            attr = del(DmwsdlDMSAG.__operations, value);
+        
+        return(attr);
     }
 
     /**
      * Removes the operations attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:897)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1355)
     public void remOperations(){
          rem(DmwsdlDMSAG.__operations);
     }

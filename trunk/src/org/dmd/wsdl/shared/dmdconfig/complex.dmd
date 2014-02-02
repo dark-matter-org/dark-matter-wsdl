@@ -4,3 +4,36 @@ field String  	url   	The URL of the namespace being used.
 field String	prefix 	The prefix that indicates a subset of the namespace
 mandatoryFields	1
 description		A namespace from which definitions are used.
+
+ComplexTypeDefinition
+name LabelledElementReference
+field String		nameSpace	The namespace for the element.
+field XsElement  	element		A reference to an XmlElement
+field String		label 		A label for the element.
+description			Allows for a reference to an XmlElement and specification of a label.
+
+ComplexTypeDefinition
+name ElementReference
+field String		nameSpace	The namespace for the element.
+field XsElement  	element		A reference to an XmlElement
+description			Allows for a reference to an XmlElement.
+
+ComplexTypeDefinition
+name LabelledFaultReference
+field String		nameSpace	The namespace for the fault.
+field WsdlFault  	fault		A reference to a fault.
+field String		label 		A label for the fault.
+description			Allows for a reference to a Wsdlfault and specification of a label.
+
+ComplexTypeDefinition
+name InterfaceReference
+field String		nameSpace	The namespace for the interface.
+field WsdlInterface	interfaceRef	A reference to a WsdlInterface.
+description			Allows for a reference to an WsdlInterface.
+
+ComplexTypeDefinition
+name ProtocolReference
+field String		nameSpace	The namespace for the protocol reference.
+field String		url			the URL indicating the protocol.
+description			Allows for a reference to a protocol specification.
+

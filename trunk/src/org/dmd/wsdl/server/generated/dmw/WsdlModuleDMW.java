@@ -13,13 +13,18 @@ import org.dmd.dms.ClassDefinition;                                         // P
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Attribute defFiles from the meta schema - (BaseDMWGenerator.java:897)
 import org.dmd.dms.generated.dmw.StringIterableDMW;                         // For multi-valued String - (BaseDMWGenerator.java:2103)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (BaseDMWGenerator.java:1071)
+import org.dmd.wsdl.server.extended.WsdlBinding;                            // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
 import org.dmd.wsdl.server.extended.WsdlDefinition;                         // Derived class - (BaseDMWGenerator.java:1248)
 import org.dmd.wsdl.server.extended.WsdlDescription;                        // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.WsdlFault;                              // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
 import org.dmd.wsdl.server.extended.WsdlInterface;                          // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
 import org.dmd.wsdl.server.extended.WsdlModule;                             // Required for getModificationRecorder() - (BaseDMWGenerator.java:1076)
 import org.dmd.wsdl.server.extended.WsdlOperation;                          // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
 import org.dmd.wsdl.server.extended.WsdlService;                            // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
-import org.dmd.wsdl.server.extended.XmlElement;                             // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.XsComplexType;                          // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.XsElement;                              // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.XsSchema;                               // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
+import org.dmd.wsdl.server.extended.XsType;                                 // A definition from the WsdlModule Module - (DSDefinitionModule.java:174)
 import org.dmd.wsdl.server.generated.dmw.WsdlModuleIterableDMW;             // For multi-valued WsdlModule - (BaseDMWGenerator.java:1709)
 import org.dmd.wsdl.server.generated.dsd.WsdlModuleScopedInterface;         // Required to manage module definition - (DMWGenerator.java:169)
 import org.dmd.wsdl.shared.generated.dmo.DmwsdlDMSAG;                       // Attribute dependsOnWsdlModule from the dmwsdl schema - (BaseDMWGenerator.java:897)
@@ -40,12 +45,17 @@ abstract public class WsdlModuleDMW extends WsdlDefinition implements DmcDefinit
     // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:59)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:203)
     DmcDefinitionSet<WsdlDefinition>      WsdlDefinitionDefs     = new DmcDefinitionSet<WsdlDefinition>("WsdlModule-allDefinitions");         // All definitions associated with this module
+    DmcDefinitionSet<WsdlBinding>         WsdlBindingDefs        = new DmcDefinitionSet<WsdlBinding>("WsdlModule-WsdlBindingDefs");           // All WsdlBinding definitions
     DmcDefinitionSet<WsdlDescription>     WsdlDescriptionDefs    = new DmcDefinitionSet<WsdlDescription>("WsdlModule-WsdlDescriptionDefs");   // All WsdlDescription definitions
+    DmcDefinitionSet<WsdlFault>           WsdlFaultDefs          = new DmcDefinitionSet<WsdlFault>("WsdlModule-WsdlFaultDefs");               // All WsdlFault definitions
     DmcDefinitionSet<WsdlInterface>       WsdlInterfaceDefs      = new DmcDefinitionSet<WsdlInterface>("WsdlModule-WsdlInterfaceDefs");       // All WsdlInterface definitions
     DmcDefinitionSet<WsdlModule>          WsdlModuleDefs         = new DmcDefinitionSet<WsdlModule>("WsdlModule-WsdlModuleDefs");             // All WsdlModule definitions
     DmcDefinitionSet<WsdlOperation>       WsdlOperationDefs      = new DmcDefinitionSet<WsdlOperation>("WsdlModule-WsdlOperationDefs");       // All WsdlOperation definitions
     DmcDefinitionSet<WsdlService>         WsdlServiceDefs        = new DmcDefinitionSet<WsdlService>("WsdlModule-WsdlServiceDefs");           // All WsdlService definitions
-    DmcDefinitionSet<XmlElement>          XmlElementDefs         = new DmcDefinitionSet<XmlElement>("WsdlModule-XmlElementDefs");             // All XmlElement definitions
+    DmcDefinitionSet<XsComplexType>       XsComplexTypeDefs      = new DmcDefinitionSet<XsComplexType>("WsdlModule-XsComplexTypeDefs");       // All XsComplexType definitions
+    DmcDefinitionSet<XsElement>           XsElementDefs          = new DmcDefinitionSet<XsElement>("WsdlModule-XsElementDefs");               // All XsElement definitions
+    DmcDefinitionSet<XsSchema>            XsSchemaDefs           = new DmcDefinitionSet<XsSchema>("WsdlModule-XsSchemaDefs");                 // All XsSchema definitions
+    DmcDefinitionSet<XsType>              XsTypeDefs             = new DmcDefinitionSet<XsType>("WsdlModule-XsTypeDefs");                     // All XsType definitions
 
     // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:558)
     public WsdlModuleDMW() {
@@ -583,6 +593,24 @@ abstract public class WsdlModuleDMW extends WsdlDefinition implements DmcDefinit
     }
 
     // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
+    public void addWsdlBinding(WsdlBinding def){
+        WsdlBindingDefs.add(def);
+        addWsdlDefinition(def);
+    }
+
+    public int getWsdlBindingCount(){
+        return(WsdlBindingDefs.size());
+    }
+
+    public WsdlBinding getWsdlBinding(DotName name){
+        return(WsdlBindingDefs.getDefinition(name));
+    }
+
+    public Iterator<WsdlBinding> getAllWsdlBinding(){
+        return(WsdlBindingDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
     public void addWsdlDescription(WsdlDescription def){
         WsdlDescriptionDefs.add(def);
         addWsdlDefinition(def);
@@ -598,6 +626,24 @@ abstract public class WsdlModuleDMW extends WsdlDefinition implements DmcDefinit
 
     public Iterator<WsdlDescription> getAllWsdlDescription(){
         return(WsdlDescriptionDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
+    public void addWsdlFault(WsdlFault def){
+        WsdlFaultDefs.add(def);
+        addWsdlDefinition(def);
+    }
+
+    public int getWsdlFaultCount(){
+        return(WsdlFaultDefs.size());
+    }
+
+    public WsdlFault getWsdlFault(DotName name){
+        return(WsdlFaultDefs.getDefinition(name));
+    }
+
+    public Iterator<WsdlFault> getAllWsdlFault(){
+        return(WsdlFaultDefs.values().iterator());
     }
 
     // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
@@ -655,21 +701,75 @@ abstract public class WsdlModuleDMW extends WsdlDefinition implements DmcDefinit
     }
 
     // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
-    public void addXmlElement(XmlElement def){
-        XmlElementDefs.add(def);
+    public void addXsComplexType(XsComplexType def){
+        XsComplexTypeDefs.add(def);
+        addXsType(def);
+    }
+
+    public int getXsComplexTypeCount(){
+        return(XsComplexTypeDefs.size());
+    }
+
+    public XsComplexType getXsComplexType(DotName name){
+        return(XsComplexTypeDefs.getDefinition(name));
+    }
+
+    public Iterator<XsComplexType> getAllXsComplexType(){
+        return(XsComplexTypeDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
+    public void addXsElement(XsElement def){
+        XsElementDefs.add(def);
         addWsdlDefinition(def);
     }
 
-    public int getXmlElementCount(){
-        return(XmlElementDefs.size());
+    public int getXsElementCount(){
+        return(XsElementDefs.size());
     }
 
-    public XmlElement getXmlElement(DotName name){
-        return(XmlElementDefs.getDefinition(name));
+    public XsElement getXsElement(DotName name){
+        return(XsElementDefs.getDefinition(name));
     }
 
-    public Iterator<XmlElement> getAllXmlElement(){
-        return(XmlElementDefs.values().iterator());
+    public Iterator<XsElement> getAllXsElement(){
+        return(XsElementDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
+    public void addXsSchema(XsSchema def){
+        XsSchemaDefs.add(def);
+        addWsdlDefinition(def);
+    }
+
+    public int getXsSchemaCount(){
+        return(XsSchemaDefs.size());
+    }
+
+    public XsSchema getXsSchema(DotName name){
+        return(XsSchemaDefs.getDefinition(name));
+    }
+
+    public Iterator<XsSchema> getAllXsSchema(){
+        return(XsSchemaDefs.values().iterator());
+    }
+
+    // Generated from: org.dmd.dms.DSDefinitionModule.getInterfaceMethodsImplementations(DSDefinitionModule.java:254)
+    public void addXsType(XsType def){
+        XsTypeDefs.add(def);
+        addWsdlDefinition(def);
+    }
+
+    public int getXsTypeCount(){
+        return(XsTypeDefs.size());
+    }
+
+    public XsType getXsType(DotName name){
+        return(XsTypeDefs.getDefinition(name));
+    }
+
+    public Iterator<XsType> getAllXsType(){
+        return(XsTypeDefs.values().iterator());
     }
 
     // Generated from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperFunctions(DMWGenerator.java:221)
