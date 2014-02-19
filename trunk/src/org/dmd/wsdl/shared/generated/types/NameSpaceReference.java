@@ -16,16 +16,18 @@
 package org.dmd.wsdl.shared.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:106)
-import java.io.Serializable;                                    // To prevent serialization warnings - (ComplexTypeFormatter.java:70)
-import org.dmd.dmc.DmcAttributeInfo;                            // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:76)
-import org.dmd.dmc.DmcInputStreamIF;                            // Standard serialization techniques - (ComplexTypeFormatter.java:71)
-import org.dmd.dmc.DmcOutputStreamIF;                           // Standard serialization techniques - (ComplexTypeFormatter.java:72)
-import org.dmd.dmc.DmcValueException;                           // Standard value exception - (ComplexTypeFormatter.java:99)
-import org.dmd.dmc.types.IntegerVar;                            // To support getNextField() - (ComplexTypeFormatter.java:73)
-import org.dmd.dms.generated.enums.DataTypeEnum;                // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:74)
-import org.dmd.dms.generated.enums.ValueTypeEnum;               // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:75)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type - (ComplexTypeFormatter.java:616)
+// Called from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:123)
+import java.io.Serializable;                                    // To prevent serialization warnings - (NewComplexTypeFormatter.java:92)
+import java.util.ArrayList;                                     // To store NameValuePairs - (NewComplexTypeFormatter.java:99)
+import org.dmd.dmc.DmcAttributeInfo;                            // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:97)
+import org.dmd.dmc.DmcInputStreamIF;                            // Standard serialization techniques - (NewComplexTypeFormatter.java:93)
+import org.dmd.dmc.DmcOutputStreamIF;                           // Standard serialization techniques - (NewComplexTypeFormatter.java:94)
+import org.dmd.dmc.DmcValueException;                           // Standard value exception - (NewComplexTypeFormatter.java:118)
+import org.dmd.dmc.util.ComplexTypeSplitter;                    // For parsing initial input - (NewComplexTypeFormatter.java:98)
+import org.dmd.dmc.util.NameValuePair;                          // To store values parsed from initial input - (NewComplexTypeFormatter.java:100)
+import org.dmd.dms.generated.enums.DataTypeEnum;                // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:95)
+import org.dmd.dms.generated.enums.ValueTypeEnum;               // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:96)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type - (NewComplexTypeFormatter.java:795)
 
 
 
@@ -34,20 +36,19 @@ import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type
  * The NameSpaceReference class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:113)
+ * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:130)
  */
 public class NameSpaceReference implements Serializable {
 
-    // Some fields are optional - this many are mandatory
-    static int mandatoryFields = 1;
+    final static int requiredParts = 1;
 
     // The URL of the namespace being used.
-    String url;
+    String urlV;
 
     final static DmcAttributeInfo urlAI = new DmcAttributeInfo("url",0,"String",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 
     // The prefix that indicates a subset of the namespace
-    String prefix;
+    String prefixV;
 
     final static DmcAttributeInfo prefixAI = new DmcAttributeInfo("prefix",0,"String",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 
@@ -61,108 +62,93 @@ public class NameSpaceReference implements Serializable {
      * Copy constructor.
      */
     public NameSpaceReference(NameSpaceReference original){
-        url = original.url;
-        prefix = original.prefix;
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:733)
+        urlV =  original.urlV;
+        prefixV =  original.prefixV;
     }
 
     /**
      * All fields constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:140)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:161)
      */
-    public NameSpaceReference(String f1, String f2) throws DmcValueException {
-        url = DmcTypeStringSTATIC.instance.typeCheck(f1);
-        prefix = DmcTypeStringSTATIC.instance.typeCheck(f2);
+    public NameSpaceReference(String url_, String prefix_) throws DmcValueException {
+        urlV = DmcTypeStringSTATIC.instance.typeCheck(url_);
+        if (prefix_ != null)
+            prefixV = DmcTypeStringSTATIC.instance.typeCheck(prefix_);
     }
 
     /**
      * String based constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:180)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:234)
      */
     public NameSpaceReference(String initialInput) throws DmcValueException {
-        IntegerVar seppos = new IntegerVar(-1);
-        Object rc = null;
-        String input = initialInput.trim();
-        input = input.replaceAll("(\\s)+", " ");
-        if ((rc = getNextField(input,seppos,"url",1,false)) != null)
-            url = DmcTypeStringSTATIC.instance.typeCheck(rc);
-        if ((rc = getNextField(input,seppos,"prefix",2,true)) != null)
-            prefix = DmcTypeStringSTATIC.instance.typeCheck(rc);
+        initialize(initialInput);
+    }
+    /**
+     * Initialize content based on string form.
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:242)
+     */
+    void initialize(String initialInput) throws DmcValueException {
+        ArrayList<NameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
+
+        if (nvp.size() < requiredParts)
+            throw(new DmcValueException("Missing required values for complex type: NameSpaceReference"));
+
+        urlV = DmcTypeStringSTATIC.instance.typeCheck(nvp.get(0).getValue());
+
+        if (nvp.size() > requiredParts){
+            for(int i=1; i<nvp.size(); i++){
+                if (nvp.get(i).getName() == null){
+                    if (nvp.get(i).getValue() == null)
+                        throw(new DmcValueException("Expecting a partname=\"some value\" in complex type: NameSpaceReference"));
+                    else
+                        throw(new DmcValueException("Expecting a partname=\"" + nvp.get(i).getValue() + "\" in complex type: NameSpaceReference"));
+                }
+                if (nvp.get(i).getName().equals("prefix"))
+                    prefixV = DmcTypeStringSTATIC.instance.typeCheck(nvp.get(i).getValue());
+                else{
+                    throw(new DmcValueException("Unknown field for complex type NameSpaceReference: "  + nvp.get(i).getName()));
+                }
+            }
+        }
+
     }
 
     /**
      * Serialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:225)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
-        DmcTypeStringSTATIC.instance.serializeValue(dos, url);
-        DmcTypeStringSTATIC.instance.serializeValue(dos, prefix);
+        dos.writeUTF(toString());
     }
 
     /**
      * Deserialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:242)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-        url = DmcTypeStringSTATIC.instance.deserializeValue(dis);
-        prefix = DmcTypeStringSTATIC.instance.deserializeValue(dis);
+        initialize(dis.readUTF());
     }
 
     /**
      * String form.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:259)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:341)
      */
     public String toString(){
-        return(url.toString() + " " + prefix.toString());
+        StringBuffer sb = new StringBuffer();
+        sb.append(urlV.toString());
+        if (prefixV != null){
+            sb.append(' ');
+            sb.append("prefix=" + prefixV.toString());
+        }
+
+        return(sb.toString());
     }
 
     public String getUrl(){
-        return(url);
+        return(urlV);
     }
 
     public String getPrefix(){
-        return(prefix);
-    }
-
-    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:334)
-    String getNextField(String input, IntegerVar seppos, String fn, int fnum, boolean last) throws DmcValueException {
-    	   String rc = null;
-    	   int start = seppos.intValue();
-
-    	   if ( (start+1) >= input.length()){
-            if (fnum > mandatoryFields)
-                return(null);
-            throw (new DmcValueException("Missing value for field: " + fn + " in complex type: NameSpaceReference"));
-        }
-
-    	   if (last){
-    	       rc = input.substring(start+1);
-    	   }
-    	   else{
-    	       int pos = -1;
-    	       if (start > 0)
-    		       pos = input.indexOf(" ", start+1);
-    	       else
-    		       pos = input.indexOf(" ");
-
-    	       if (pos == -1){
-                rc = input.substring(start+1);
-                seppos.set(input.length());
-                return(rc);
-            }
-
-    		   while(pos < (input.length()-1)){
-    		       if ( input.charAt(pos+1) == ' ')
-    		           pos++;
-    		       else
-    		           break;
-    		   }
-
-    	       rc = input.substring(start+1, pos).trim();
-
-    	       seppos.set(pos);
-        }
-
-        return(rc);
+        return(prefixV);
     }
 
 }
