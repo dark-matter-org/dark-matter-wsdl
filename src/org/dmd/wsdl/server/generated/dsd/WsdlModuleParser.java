@@ -16,7 +16,7 @@
 package org.dmd.wsdl.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:465)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:468)
 import java.util.Iterator;                                                  // To iterate over collections - (DSDArtifactFormatter.java:437)
 import org.dmd.dmc.DmcNameClashException;                                   // May be thrown when instantiating objects - (DSDArtifactFormatter.java:448)
 import org.dmd.dmc.DmcValueException;                                       // May be thrown when parsing objects - (DSDArtifactFormatter.java:447)
@@ -24,8 +24,10 @@ import org.dmd.dmc.definitions.DsdParserInterface;                          // S
 import org.dmd.dmc.rules.DmcRuleExceptionSet;                               // May be thrown by rule manager - (DSDArtifactFormatter.java:450)
 import org.dmd.dmc.rules.SourceInfo;                                        // To indicate the source of rule problems - (DSDArtifactFormatter.java:453)
 import org.dmd.dmc.util.DmcUncheckedObject;                                 // Basic parsing of objects - (DSDArtifactFormatter.java:430)
+import org.dmd.dms.AttributeDefinition;                                     // To allow addition of preserve newline attributes - (DSDArtifactFormatter.java:465)
 import org.dmd.dms.SchemaDefinition;                                        // To support dynamic loading of schemas - (DSDArtifactFormatter.java:438)
 import org.dmd.dms.SchemaManager;                                           // Manages the schemas we use - (DSDArtifactFormatter.java:426)
+import org.dmd.dms.generated.dmw.AttributeDefinitionIterableDMW;            // To allow addition of preserve newline attributes - (DSDArtifactFormatter.java:466)
 import org.dmd.dms.generated.dmw.StringIterableDMW;                         // To iterate over defFiles - (DSDArtifactFormatter.java:452)
 import org.dmd.dmv.shared.DmvRuleManager;                                   // The injected rule manager used for initializations - (DSDArtifactFormatter.java:451)
 import org.dmd.dmw.DmwObjectFactory;                                        // Constructs wrapped objects - (DSDArtifactFormatter.java:433)
@@ -34,30 +36,30 @@ import org.dmd.util.exceptions.ResultException;                             // M
 import org.dmd.util.parsing.ConfigLocation;                                 // Config file location info - (DSDArtifactFormatter.java:432)
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;                       // Basic parsing of objects - (DSDArtifactFormatter.java:429)
 import org.dmd.util.parsing.DmcUncheckedOIFParser;                          // Basic parsing of objects - (DSDArtifactFormatter.java:428)
-import org.dmd.wsdl.server.extended.WsdlBinding;                            // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
-import org.dmd.wsdl.server.extended.WsdlDefinition;                         // The base definition from the WsdlModule Module - (DSDArtifactFormatter.java:707)
-import org.dmd.wsdl.server.extended.WsdlDescription;                        // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
-import org.dmd.wsdl.server.extended.WsdlFault;                              // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
-import org.dmd.wsdl.server.extended.WsdlInterface;                          // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
+import org.dmd.wsdl.server.extended.WsdlBinding;                            // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:737)
+import org.dmd.wsdl.server.extended.WsdlDefinition;                         // The base definition from the WsdlModule Module - (DSDArtifactFormatter.java:729)
+import org.dmd.wsdl.server.extended.WsdlDescription;                        // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:737)
+import org.dmd.wsdl.server.extended.WsdlFault;                              // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:737)
+import org.dmd.wsdl.server.extended.WsdlInterface;                          // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:737)
 import org.dmd.wsdl.server.extended.WsdlModule;                             // The kind of DDM we're reading - (DSDArtifactFormatter.java:458)
-import org.dmd.wsdl.server.extended.WsdlOperation;                          // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
-import org.dmd.wsdl.server.extended.WsdlService;                            // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
-import org.dmd.wsdl.server.extended.XsComplexType;                          // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
-import org.dmd.wsdl.server.extended.XsElement;                              // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
-import org.dmd.wsdl.server.extended.XsSchema;                               // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
-import org.dmd.wsdl.server.extended.XsType;                                 // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:715)
+import org.dmd.wsdl.server.extended.WsdlOperation;                          // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:737)
+import org.dmd.wsdl.server.extended.WsdlService;                            // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:737)
+import org.dmd.wsdl.server.extended.XsComplexType;                          // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:737)
+import org.dmd.wsdl.server.extended.XsElement;                              // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:737)
+import org.dmd.wsdl.server.extended.XsSchema;                               // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:737)
+import org.dmd.wsdl.server.extended.XsType;                                 // A definition from the WsdlModule Module - (DSDArtifactFormatter.java:737)
 import org.dmd.wsdl.server.generated.DmwsdlSchemaAG;                        // The schema recognized by this parser - (DSDArtifactFormatter.java:446)
 import org.dmd.wsdl.server.generated.dsd.WsdlModuleGlobalInterface;         // Interface to our definition storage - (DSDArtifactFormatter.java:434)
 
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:468)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:471)
 public class WsdlModuleParser implements DsdParserInterface, DmcUncheckedOIFHandlerIF {
 
     final static String fileExtension = "dmwsdl";
 
-    // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:59)
-    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:482)
+    // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:64)
+    // Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:485)
     SchemaManager                schema;                                             // Manages the schema for this DSD
     DmcUncheckedOIFParser        parser         = new DmcUncheckedOIFParser(this);   // Parses objects from the config file
     DmwObjectFactory             factory;                                            // Instantiates wrapped objects
@@ -66,10 +68,20 @@ public class WsdlModuleParser implements DsdParserInterface, DmcUncheckedOIFHand
     ConfigLocation               location;                                           // The location of the config being parsed
     WsdlModule                   module;                                             // The DDM module
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:485)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:488)
     public WsdlModuleParser(WsdlModuleGlobalInterface d, DmvRuleManager r) throws ResultException, DmcValueException, DmcNameClashException {
         schema = new SchemaManager();
-        schema.manageSchema(new DmwsdlSchemaAG());
+        DmwsdlSchemaAG sd = new DmwsdlSchemaAG();
+        schema.manageSchema(sd);
+        if (sd.getAttributeDefListSize() > 0){
+            AttributeDefinitionIterableDMW attrs = sd.getAttributeDefList();
+            while(attrs.hasNext()){
+                AttributeDefinition ad = attrs.getNext();
+                if (ad.getPreserveNewlines()){
+                    parser.addPreserveNewlinesAttribute(ad.getName().getNameString());
+                }
+            }
+        }
         
         factory      = new DmwObjectFactory(schema);
         
@@ -81,7 +93,7 @@ public class WsdlModuleParser implements DsdParserInterface, DmcUncheckedOIFHand
         return(fileExtension);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:500)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:513)
     public WsdlModule parseConfig(ConfigLocation l) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         location = l;
 
@@ -112,7 +124,7 @@ public class WsdlModuleParser implements DsdParserInterface, DmcUncheckedOIFHand
         return(module);
     }
 
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:533)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:546)
     @Override
     public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
         WsdlDefinition definition = null;
@@ -181,7 +193,7 @@ public class WsdlModuleParser implements DsdParserInterface, DmcUncheckedOIFHand
             }
         }
         else{
-            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:607)
+            // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateParser(DSDArtifactFormatter.java:620)
             if (definition instanceof WsdlModule){
                 ResultException ex = new ResultException("Multiple WsdlModule definitions while parsing config: " + location.getFileName());
                 ex.setLocationInfo(infile, lineNumber);
@@ -236,7 +248,7 @@ public class WsdlModuleParser implements DsdParserInterface, DmcUncheckedOIFHand
         }
 
     }
-    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.writeLoadSchemasFunction(DSDArtifactFormatter.java:645)
+    // Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.writeLoadSchemasFunction(DSDArtifactFormatter.java:658)
     void loadSchemas(WsdlModule module) throws ResultException {
     	   Class<?> schemaClass = null;
     	   SchemaDefinition sd	= null;
@@ -273,6 +285,15 @@ public class WsdlModuleParser implements DsdParserInterface, DmcUncheckedOIFHand
                 try {
                     if (schema.isSchema(sd.getInstance().getName().getNameString()) == null){
                         schema.manageSchema(sd);
+                        if (sd.getAttributeDefListSize() > 0){
+                            AttributeDefinitionIterableDMW attrs = sd.getAttributeDefList();
+                            while(attrs.hasNext()){
+                                AttributeDefinition ad = attrs.getNext();
+                                if (ad.getPreserveNewlines()){
+                                    parser.addPreserveNewlinesAttribute(ad.getName().getNameString());
+                                }
+                            }
+                        }
                     }
                 } catch (DmcValueException e) {
                     // TODO Auto-generated catch block

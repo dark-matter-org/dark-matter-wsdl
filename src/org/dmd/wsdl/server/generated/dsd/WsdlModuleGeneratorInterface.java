@@ -16,15 +16,15 @@
 package org.dmd.wsdl.server.generated.dsd;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1131)
-import java.io.IOException;                                                   // May occur during artifact generation - (DSDArtifactFormatter.java:1126)
-import org.dmd.util.exceptions.ResultException;                               // For problems found after parsing - (DSDArtifactFormatter.java:1128)
-import org.dmd.util.parsing.ConfigLocation;                                   // Where the config was loaded from - (DSDArtifactFormatter.java:1127)
-import org.dmd.wsdl.server.extended.WsdlModule;                               // The base module for generation - (DSDArtifactFormatter.java:1124)
-import org.dmd.wsdl.server.generated.dsd.WsdlModuleDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1129)
+// Called from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1172)
+import java.io.IOException;                                                   // May occur during artifact generation - (DSDArtifactFormatter.java:1167)
+import org.dmd.util.exceptions.ResultException;                               // For problems found after parsing - (DSDArtifactFormatter.java:1169)
+import org.dmd.util.parsing.ConfigLocation;                                   // Where the config was loaded from - (DSDArtifactFormatter.java:1168)
+import org.dmd.wsdl.server.extended.WsdlModule;                               // The base module for generation - (DSDArtifactFormatter.java:1165)
+import org.dmd.wsdl.server.generated.dsd.WsdlModuleDefinitionManager;         // All parsed definition - (DSDArtifactFormatter.java:1170)
 
 
-// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1133)
+// Generated from: org.dmd.dmg.generators.DSDArtifactFormatter.generateGeneratorInterface(DSDArtifactFormatter.java:1174)
 public interface WsdlModuleGeneratorInterface {
 
     /**

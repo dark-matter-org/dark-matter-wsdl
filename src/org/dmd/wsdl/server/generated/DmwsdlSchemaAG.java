@@ -774,16 +774,15 @@ public class DmwsdlSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             ComplexTypeDefinitionDMO _NameSpaceReferenceOBJ = new ComplexTypeDefinitionDMO();
             _NameSpaceReference = new ComplexTypeDefinition(_NameSpaceReferenceOBJ);
-            _NameSpaceReferenceOBJ.setMandatoryFields("1");
             _NameSpaceReferenceOBJ.setName("NameSpaceReference");
             _NameSpaceReferenceOBJ.addDescription("A namespace from which definitions are used.");
+            _NameSpaceReferenceOBJ.addOptionalPart("String prefix \"The prefix that indicates a subset of the namespace\"");
+            _NameSpaceReferenceOBJ.addRequiredPart("String url \"The URL of the namespace being used.\"");
             _NameSpaceReferenceOBJ.setNameAndTypeName("NameSpaceReference.ComplexTypeDefinition");
             _NameSpaceReferenceOBJ.setDotName("dmwsdl.NameSpaceReference.ComplexTypeDefinition");
             _NameSpaceReference.setDefinedIn(this);
             _NameSpaceReferenceOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/complex.dmd");
-            _NameSpaceReferenceOBJ.setLineNumber("7");
-            _NameSpaceReferenceOBJ.addField("String url The URL of the namespace being used.");
-            _NameSpaceReferenceOBJ.addField("String prefix The prefix that indicates a subset of the namespace");
+            _NameSpaceReferenceOBJ.setLineNumber("6");
             addComplexTypeDefList(_NameSpaceReference);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
@@ -791,14 +790,14 @@ public class DmwsdlSchemaAG extends SchemaDefinition {
             _LabelledElementReference = new ComplexTypeDefinition(_LabelledElementReferenceOBJ);
             _LabelledElementReferenceOBJ.setName("LabelledElementReference");
             _LabelledElementReferenceOBJ.addDescription("Allows for a reference to an XmlElement and specification of a label.");
+            _LabelledElementReferenceOBJ.addRequiredPart("String nameSpace \"The namespace for the element.\"");
+            _LabelledElementReferenceOBJ.addRequiredPart("XsElement element \"A reference to an XmlElement\"");
+            _LabelledElementReferenceOBJ.addRequiredPart("String label \"A label for the element.\"");
             _LabelledElementReferenceOBJ.setNameAndTypeName("LabelledElementReference.ComplexTypeDefinition");
             _LabelledElementReferenceOBJ.setDotName("dmwsdl.LabelledElementReference.ComplexTypeDefinition");
             _LabelledElementReference.setDefinedIn(this);
             _LabelledElementReferenceOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/complex.dmd");
-            _LabelledElementReferenceOBJ.setLineNumber("14");
-            _LabelledElementReferenceOBJ.addField("String nameSpace The namespace for the element.");
-            _LabelledElementReferenceOBJ.addField("XsElement element A reference to an XmlElement");
-            _LabelledElementReferenceOBJ.addField("String label A label for the element.");
+            _LabelledElementReferenceOBJ.setLineNumber("13");
             addComplexTypeDefList(_LabelledElementReference);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
@@ -806,13 +805,13 @@ public class DmwsdlSchemaAG extends SchemaDefinition {
             _ElementReference = new ComplexTypeDefinition(_ElementReferenceOBJ);
             _ElementReferenceOBJ.setName("ElementReference");
             _ElementReferenceOBJ.addDescription("Allows for a reference to an XmlElement.");
+            _ElementReferenceOBJ.addRequiredPart("String nameSpace \"The namespace for the element.\"");
+            _ElementReferenceOBJ.addRequiredPart("XsElement element \"A reference to an XmlElement\"");
             _ElementReferenceOBJ.setNameAndTypeName("ElementReference.ComplexTypeDefinition");
             _ElementReferenceOBJ.setDotName("dmwsdl.ElementReference.ComplexTypeDefinition");
             _ElementReference.setDefinedIn(this);
             _ElementReferenceOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/complex.dmd");
-            _ElementReferenceOBJ.setLineNumber("20");
-            _ElementReferenceOBJ.addField("String nameSpace The namespace for the element.");
-            _ElementReferenceOBJ.addField("XsElement element A reference to an XmlElement");
+            _ElementReferenceOBJ.setLineNumber("19");
             addComplexTypeDefList(_ElementReference);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
@@ -820,14 +819,14 @@ public class DmwsdlSchemaAG extends SchemaDefinition {
             _LabelledFaultReference = new ComplexTypeDefinition(_LabelledFaultReferenceOBJ);
             _LabelledFaultReferenceOBJ.setName("LabelledFaultReference");
             _LabelledFaultReferenceOBJ.addDescription("Allows for a reference to a Wsdlfault and specification of a label.");
+            _LabelledFaultReferenceOBJ.addRequiredPart("String nameSpace \"The namespace for the fault.\"");
+            _LabelledFaultReferenceOBJ.addRequiredPart("WsdlFault fault \"A reference to a fault.\"");
+            _LabelledFaultReferenceOBJ.addRequiredPart("String label \"A label for the fault.\"");
             _LabelledFaultReferenceOBJ.setNameAndTypeName("LabelledFaultReference.ComplexTypeDefinition");
             _LabelledFaultReferenceOBJ.setDotName("dmwsdl.LabelledFaultReference.ComplexTypeDefinition");
             _LabelledFaultReference.setDefinedIn(this);
             _LabelledFaultReferenceOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/complex.dmd");
-            _LabelledFaultReferenceOBJ.setLineNumber("27");
-            _LabelledFaultReferenceOBJ.addField("String nameSpace The namespace for the fault.");
-            _LabelledFaultReferenceOBJ.addField("WsdlFault fault A reference to a fault.");
-            _LabelledFaultReferenceOBJ.addField("String label A label for the fault.");
+            _LabelledFaultReferenceOBJ.setLineNumber("26");
             addComplexTypeDefList(_LabelledFaultReference);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
@@ -835,13 +834,13 @@ public class DmwsdlSchemaAG extends SchemaDefinition {
             _InterfaceReference = new ComplexTypeDefinition(_InterfaceReferenceOBJ);
             _InterfaceReferenceOBJ.setName("InterfaceReference");
             _InterfaceReferenceOBJ.addDescription("Allows for a reference to an WsdlInterface.");
+            _InterfaceReferenceOBJ.addRequiredPart("String nameSpace \"The namespace for the interface.\"");
+            _InterfaceReferenceOBJ.addRequiredPart("WsdlInterface interfaceRef \"A reference to a WsdlInterface.\"");
             _InterfaceReferenceOBJ.setNameAndTypeName("InterfaceReference.ComplexTypeDefinition");
             _InterfaceReferenceOBJ.setDotName("dmwsdl.InterfaceReference.ComplexTypeDefinition");
             _InterfaceReference.setDefinedIn(this);
             _InterfaceReferenceOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/complex.dmd");
-            _InterfaceReferenceOBJ.setLineNumber("33");
-            _InterfaceReferenceOBJ.addField("String nameSpace The namespace for the interface.");
-            _InterfaceReferenceOBJ.addField("WsdlInterface interfaceRef A reference to a WsdlInterface.");
+            _InterfaceReferenceOBJ.setLineNumber("32");
             addComplexTypeDefList(_InterfaceReference);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
@@ -849,13 +848,13 @@ public class DmwsdlSchemaAG extends SchemaDefinition {
             _ProtocolReference = new ComplexTypeDefinition(_ProtocolReferenceOBJ);
             _ProtocolReferenceOBJ.setName("ProtocolReference");
             _ProtocolReferenceOBJ.addDescription("Allows for a reference to a protocol specification.");
+            _ProtocolReferenceOBJ.addRequiredPart("String nameSpace \"The namespace for the protocol reference.\"");
+            _ProtocolReferenceOBJ.addRequiredPart("String url \"The URL indicating the protocol.\"");
             _ProtocolReferenceOBJ.setNameAndTypeName("ProtocolReference.ComplexTypeDefinition");
             _ProtocolReferenceOBJ.setDotName("dmwsdl.ProtocolReference.ComplexTypeDefinition");
             _ProtocolReference.setDefinedIn(this);
             _ProtocolReferenceOBJ.setFile("/src/org/dmd/wsdl/shared/dmdconfig/complex.dmd");
-            _ProtocolReferenceOBJ.setLineNumber("39");
-            _ProtocolReferenceOBJ.addField("String nameSpace The namespace for the protocol reference.");
-            _ProtocolReferenceOBJ.addField("String url the URL indicating the protocol.");
+            _ProtocolReferenceOBJ.setLineNumber("38");
             addComplexTypeDefList(_ProtocolReference);
 
     }

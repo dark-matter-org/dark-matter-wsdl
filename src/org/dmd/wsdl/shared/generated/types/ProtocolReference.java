@@ -16,16 +16,18 @@
 package org.dmd.wsdl.shared.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:106)
-import java.io.Serializable;                                    // To prevent serialization warnings - (ComplexTypeFormatter.java:70)
-import org.dmd.dmc.DmcAttributeInfo;                            // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:76)
-import org.dmd.dmc.DmcInputStreamIF;                            // Standard serialization techniques - (ComplexTypeFormatter.java:71)
-import org.dmd.dmc.DmcOutputStreamIF;                           // Standard serialization techniques - (ComplexTypeFormatter.java:72)
-import org.dmd.dmc.DmcValueException;                           // Standard value exception - (ComplexTypeFormatter.java:99)
-import org.dmd.dmc.types.IntegerVar;                            // To support getNextField() - (ComplexTypeFormatter.java:73)
-import org.dmd.dms.generated.enums.DataTypeEnum;                // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:74)
-import org.dmd.dms.generated.enums.ValueTypeEnum;               // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:75)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type - (ComplexTypeFormatter.java:616)
+// Called from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:123)
+import java.io.Serializable;                                    // To prevent serialization warnings - (NewComplexTypeFormatter.java:92)
+import java.util.ArrayList;                                     // To store NameValuePairs - (NewComplexTypeFormatter.java:99)
+import org.dmd.dmc.DmcAttributeInfo;                            // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:97)
+import org.dmd.dmc.DmcInputStreamIF;                            // Standard serialization techniques - (NewComplexTypeFormatter.java:93)
+import org.dmd.dmc.DmcOutputStreamIF;                           // Standard serialization techniques - (NewComplexTypeFormatter.java:94)
+import org.dmd.dmc.DmcValueException;                           // Standard value exception - (NewComplexTypeFormatter.java:118)
+import org.dmd.dmc.util.ComplexTypeSplitter;                    // For parsing initial input - (NewComplexTypeFormatter.java:98)
+import org.dmd.dmc.util.NameValuePair;                          // To store values parsed from initial input - (NewComplexTypeFormatter.java:100)
+import org.dmd.dms.generated.enums.DataTypeEnum;                // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:95)
+import org.dmd.dms.generated.enums.ValueTypeEnum;               // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:96)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type - (NewComplexTypeFormatter.java:795)
 
 
 
@@ -34,17 +36,19 @@ import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type
  * The ProtocolReference class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:113)
+ * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:130)
  */
 public class ProtocolReference implements Serializable {
 
+    final static int requiredParts = 2;
+
     // The namespace for the protocol reference.
-    String nameSpace;
+    String nameSpaceV;
 
     final static DmcAttributeInfo nameSpaceAI = new DmcAttributeInfo("nameSpace",0,"String",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 
-    // the URL indicating the protocol.
-    String url;
+    // The URL indicating the protocol.
+    String urlV;
 
     final static DmcAttributeInfo urlAI = new DmcAttributeInfo("url",0,"String",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 
@@ -58,103 +62,73 @@ public class ProtocolReference implements Serializable {
      * Copy constructor.
      */
     public ProtocolReference(ProtocolReference original){
-        nameSpace = original.nameSpace;
-        url = original.url;
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:733)
+        nameSpaceV =  original.nameSpaceV;
+        urlV =  original.urlV;
     }
 
     /**
      * All fields constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:140)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:161)
      */
-    public ProtocolReference(String f1, String f2) throws DmcValueException {
-        nameSpace = DmcTypeStringSTATIC.instance.typeCheck(f1);
-        url = DmcTypeStringSTATIC.instance.typeCheck(f2);
+    public ProtocolReference(String nameSpace_, String url_) throws DmcValueException {
+        nameSpaceV = DmcTypeStringSTATIC.instance.typeCheck(nameSpace_);
+        urlV = DmcTypeStringSTATIC.instance.typeCheck(url_);
     }
 
     /**
      * String based constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:180)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:234)
      */
     public ProtocolReference(String initialInput) throws DmcValueException {
-        IntegerVar seppos = new IntegerVar(-1);
-        String input = initialInput.trim();
-        input = input.replaceAll("(\\s)+", " ");
-        nameSpace = DmcTypeStringSTATIC.instance.typeCheck(getNextField(input,seppos,"nameSpace",false));
-        url = DmcTypeStringSTATIC.instance.typeCheck(getNextField(input,seppos,"url",true));
+        initialize(initialInput);
+    }
+    /**
+     * Initialize content based on string form.
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:242)
+     */
+    void initialize(String initialInput) throws DmcValueException {
+        ArrayList<NameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
+
+        if (nvp.size() < requiredParts)
+            throw(new DmcValueException("Missing required values for complex type: ProtocolReference"));
+
+        nameSpaceV = DmcTypeStringSTATIC.instance.typeCheck(nvp.get(0).getValue());
+        urlV = DmcTypeStringSTATIC.instance.typeCheck(nvp.get(1).getValue());
     }
 
     /**
      * Serialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:225)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
-        DmcTypeStringSTATIC.instance.serializeValue(dos, nameSpace);
-        DmcTypeStringSTATIC.instance.serializeValue(dos, url);
+        dos.writeUTF(toString());
     }
 
     /**
      * Deserialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:242)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-        nameSpace = DmcTypeStringSTATIC.instance.deserializeValue(dis);
-        url = DmcTypeStringSTATIC.instance.deserializeValue(dis);
+        initialize(dis.readUTF());
     }
 
     /**
      * String form.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:259)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:341)
      */
     public String toString(){
-        return(nameSpace.toString() + " " + url.toString());
+        StringBuffer sb = new StringBuffer();
+        sb.append(nameSpaceV.toString());
+        sb.append(' ');
+        sb.append(urlV.toString());
+        return(sb.toString());
     }
 
     public String getNameSpace(){
-        return(nameSpace);
+        return(nameSpaceV);
     }
 
     public String getUrl(){
-        return(url);
-    }
-
-    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:334)
-    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {
-    	   String rc = null;
-    	   int start = seppos.intValue();
-
-    	   if ( (start+1) >= input.length()){
-            throw (new DmcValueException("Missing value for field: " + fn + " in complex type: ProtocolReference"));
-        }
-
-    	   if (last){
-    	       rc = input.substring(start+1);
-    	   }
-    	   else{
-    	       int pos = -1;
-    	       if (start > 0)
-    		       pos = input.indexOf(" ", start+1);
-    	       else
-    		       pos = input.indexOf(" ");
-
-    	       if (pos == -1){
-    		       rc = input.substring(start+1);
-                seppos.set(input.length());
-                return(rc);
-            }
-
-    		   while(pos < (input.length()-1)){
-    		       if ( input.charAt(pos+1) == ' ')
-    		           pos++;
-    		       else
-    		           break;
-    		   }
-
-    	       rc = input.substring(start+1, pos).trim();
-
-    	       seppos.set(pos);
-        }
-
-        return(rc);
+        return(urlV);
     }
 
 }

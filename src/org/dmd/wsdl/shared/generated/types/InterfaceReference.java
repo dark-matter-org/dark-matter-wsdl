@@ -16,26 +16,28 @@
 package org.dmd.wsdl.shared.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:106)
-import java.io.Serializable;                                                      // To prevent serialization warnings - (ComplexTypeFormatter.java:70)
-import org.dmd.dmc.DmcAttributeInfo;                                              // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:76)
-import org.dmd.dmc.DmcContainerIF;                                                // To support object references - (ComplexTypeFormatter.java:82)
-import org.dmd.dmc.DmcInputStreamIF;                                              // Standard serialization techniques - (ComplexTypeFormatter.java:71)
-import org.dmd.dmc.DmcNameClashResolverIF;                                        // To support possible clashing object references - (ComplexTypeFormatter.java:86)
-import org.dmd.dmc.DmcNameResolverIF;                                             // To support object references - (ComplexTypeFormatter.java:79)
-import org.dmd.dmc.DmcNameResolverWithClashSupportIF;                             // To support possible clashing object references - (ComplexTypeFormatter.java:84)
-import org.dmd.dmc.DmcNamedObjectIF;                                              // To support object references - (ComplexTypeFormatter.java:80)
-import org.dmd.dmc.DmcNamedObjectREF;                                             // To support object references - (ComplexTypeFormatter.java:81)
-import org.dmd.dmc.DmcObject;                                                     // To support possible clashing object references - (ComplexTypeFormatter.java:87)
-import org.dmd.dmc.DmcOutputStreamIF;                                             // Standard serialization techniques - (ComplexTypeFormatter.java:72)
-import org.dmd.dmc.DmcValueException;                                             // Standard value exception - (ComplexTypeFormatter.java:99)
-import org.dmd.dmc.DmcValueExceptionSet;                                          // To support possible clashing object references - (ComplexTypeFormatter.java:88)
-import org.dmd.dmc.types.IntegerVar;                                              // To support getNextField() - (ComplexTypeFormatter.java:73)
-import org.dmd.dms.generated.enums.DataTypeEnum;                                  // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:74)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                                 // For fake DmcAttributeInfo - (ComplexTypeFormatter.java:75)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                           // Standard type - (ComplexTypeFormatter.java:616)
-import org.dmd.wsdl.shared.generated.types.DmcTypeWsdlInterfaceREFSTATIC;         // Internally generated type - (ComplexTypeFormatter.java:616)
-import org.dmd.wsdl.shared.generated.types.WsdlInterfaceREF;                      // Object reference - (ComplexTypeFormatter.java:579)
+// Called from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:123)
+import java.io.Serializable;                                                      // To prevent serialization warnings - (NewComplexTypeFormatter.java:92)
+import java.util.ArrayList;                                                       // To store NameValuePairs - (NewComplexTypeFormatter.java:99)
+import org.dmd.dmc.DmcAttributeInfo;                                              // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:97)
+import org.dmd.dmc.DmcContainerIF;                                                // To support object references - (NewComplexTypeFormatter.java:109)
+import org.dmd.dmc.DmcInputStreamIF;                                              // Standard serialization techniques - (NewComplexTypeFormatter.java:93)
+import org.dmd.dmc.DmcNameClashResolverIF;                                        // To support possible clashing object references - (NewComplexTypeFormatter.java:113)
+import org.dmd.dmc.DmcNameResolverIF;                                             // To support object references - (NewComplexTypeFormatter.java:106)
+import org.dmd.dmc.DmcNameResolverWithClashSupportIF;                             // To support possible clashing object references - (NewComplexTypeFormatter.java:111)
+import org.dmd.dmc.DmcNamedObjectIF;                                              // To support object references - (NewComplexTypeFormatter.java:107)
+import org.dmd.dmc.DmcNamedObjectREF;                                             // To support object references - (NewComplexTypeFormatter.java:108)
+import org.dmd.dmc.DmcObject;                                                     // To support possible clashing object references - (NewComplexTypeFormatter.java:114)
+import org.dmd.dmc.DmcOutputStreamIF;                                             // Standard serialization techniques - (NewComplexTypeFormatter.java:94)
+import org.dmd.dmc.DmcValueException;                                             // Standard value exception - (NewComplexTypeFormatter.java:118)
+import org.dmd.dmc.DmcValueExceptionSet;                                          // To support possible clashing object references - (NewComplexTypeFormatter.java:115)
+import org.dmd.dmc.util.ComplexTypeSplitter;                                      // For parsing initial input - (NewComplexTypeFormatter.java:98)
+import org.dmd.dmc.util.NameValuePair;                                            // To store values parsed from initial input - (NewComplexTypeFormatter.java:100)
+import org.dmd.dms.generated.enums.DataTypeEnum;                                  // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:95)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                                 // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:96)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                           // Standard type - (NewComplexTypeFormatter.java:795)
+import org.dmd.wsdl.shared.generated.types.DmcTypeWsdlInterfaceREFSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:795)
+import org.dmd.wsdl.shared.generated.types.WsdlInterfaceREF;                      // Object reference - (NewComplexTypeFormatter.java:770)
 
 
 
@@ -44,17 +46,19 @@ import org.dmd.wsdl.shared.generated.types.WsdlInterfaceREF;                    
  * The InterfaceReference class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:113)
+ * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:130)
  */
 public class InterfaceReference implements Serializable {
 
+    final static int requiredParts = 2;
+
     // The namespace for the interface.
-    String nameSpace;
+    String nameSpaceV;
 
     final static DmcAttributeInfo nameSpaceAI = new DmcAttributeInfo("nameSpace",0,"String",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 
     // A reference to a WsdlInterface.
-    WsdlInterfaceREF interfaceRef;
+    WsdlInterfaceREF interfaceRefV;
 
     final static DmcAttributeInfo interfaceRefAI = new DmcAttributeInfo("interfaceRef",0,"WsdlInterface",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN);
 
@@ -68,135 +72,109 @@ public class InterfaceReference implements Serializable {
      * Copy constructor.
      */
     public InterfaceReference(InterfaceReference original){
-        nameSpace = original.nameSpace;
-        interfaceRef = original.interfaceRef;
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:733)
+        nameSpaceV =  original.nameSpaceV;
+        interfaceRefV =  original.interfaceRefV;
     }
 
     /**
      * All fields constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:140)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:161)
      */
-    public InterfaceReference(String f1, WsdlInterfaceREF f2) throws DmcValueException {
-        nameSpace = DmcTypeStringSTATIC.instance.typeCheck(f1);
-        interfaceRef = DmcTypeWsdlInterfaceREFSTATIC.instance.typeCheck(f2);
+    public InterfaceReference(String nameSpace_, WsdlInterfaceREF interfaceRef_) throws DmcValueException {
+        nameSpaceV = DmcTypeStringSTATIC.instance.typeCheck(nameSpace_);
+        interfaceRefV = DmcTypeWsdlInterfaceREFSTATIC.instance.typeCheck(interfaceRef_);
     }
 
     /**
      * String based constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:180)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:234)
      */
     public InterfaceReference(String initialInput) throws DmcValueException {
-        IntegerVar seppos = new IntegerVar(-1);
-        String input = initialInput.trim();
-        input = input.replaceAll("(\\s)+", " ");
-        nameSpace = DmcTypeStringSTATIC.instance.typeCheck(getNextField(input,seppos,"nameSpace",false));
-        interfaceRef = DmcTypeWsdlInterfaceREFSTATIC.instance.typeCheck(getNextField(input,seppos,"interfaceRef",true));
+        initialize(initialInput);
+    }
+    /**
+     * Initialize content based on string form.
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:242)
+     */
+    void initialize(String initialInput) throws DmcValueException {
+        ArrayList<NameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
+
+        if (nvp.size() < requiredParts)
+            throw(new DmcValueException("Missing required values for complex type: InterfaceReference"));
+
+        nameSpaceV = DmcTypeStringSTATIC.instance.typeCheck(nvp.get(0).getValue());
+        interfaceRefV = DmcTypeWsdlInterfaceREFSTATIC.instance.typeCheck(nvp.get(1).getValue());
     }
 
     /**
      * Serialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:225)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
-        DmcTypeStringSTATIC.instance.serializeValue(dos, nameSpace);
-        DmcTypeWsdlInterfaceREFSTATIC.instance.serializeValue(dos, interfaceRef);
+        dos.writeUTF(toString());
     }
 
     /**
      * Deserialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:242)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-        nameSpace = DmcTypeStringSTATIC.instance.deserializeValue(dis);
-        interfaceRef = DmcTypeWsdlInterfaceREFSTATIC.instance.deserializeValue(dis);
+        initialize(dis.readUTF());
     }
 
     /**
      * String form.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:259)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:341)
      */
     public String toString(){
-        return(nameSpace.toString() + " " + interfaceRef.toString());
+        StringBuffer sb = new StringBuffer();
+        sb.append(nameSpaceV.toString());
+        sb.append(' ');
+        sb.append(interfaceRefV.toString());
+        return(sb.toString());
     }
 
     public String getNameSpace(){
-        return(nameSpace);
+        return(nameSpaceV);
     }
 
     public WsdlInterfaceREF getInterfaceRef(){
-        return(interfaceRef);
+        return(interfaceRefV);
     }
 
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:447)
     @SuppressWarnings({"unchecked", "rawtypes"})
-    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:291)
     public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
         DmcNamedObjectIF  obj = null;
 
-        obj = resolver.findNamedObject(interfaceRef.getObjectName());
-        if (obj == null)
-            throw(new DmcValueException("Could not resolve reference to: " + interfaceRef.getObjectName() + " via attribute: " + attrName));
+        if ((interfaceRefV != null) && (!interfaceRefV.isResolved())){
+            obj = resolver.findNamedObject(interfaceRefV.getObjectName());
+            if (obj == null)
+                throw(new DmcValueException("Could not resolve reference to: " + interfaceRefV.getObjectName() + " via attribute: " + attrName));
         
-        if (obj instanceof DmcContainerIF)
-            ((DmcNamedObjectREF)interfaceRef).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-        else
-            ((DmcNamedObjectREF)interfaceRef).setObject(obj);
+            if (obj instanceof DmcContainerIF)
+                ((DmcNamedObjectREF)interfaceRefV).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
+            else
+                ((DmcNamedObjectREF)interfaceRefV).setObject(obj);
+        }
         
     }
 
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:492)
     @SuppressWarnings({"unchecked", "rawtypes"})
-    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:313)
     public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {
         DmcNamedObjectIF  obj = null;
 
-        obj = resolver.findNamedObjectMayClash(object, interfaceRef.getObjectName(), ncr, interfaceRefAI);
-        if (obj == null)
-            throw(new DmcValueException("Could not resolve reference to: " + interfaceRef.getObjectName() + " via attribute: " + ai.name));
+        if ((interfaceRefV != null) && (!interfaceRefV.isResolved())){
+            obj = resolver.findNamedObjectMayClash(object, interfaceRefV.getObjectName(), ncr, interfaceRefAI);
+            if (obj == null)
+                throw(new DmcValueException("Could not resolve reference to: " + interfaceRefV.getObjectName() + " via attribute: " + ai.name));
         
-        if (obj instanceof DmcContainerIF)
-            ((DmcNamedObjectREF)interfaceRef).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-        else
-            ((DmcNamedObjectREF)interfaceRef).setObject(obj);
+            if (obj instanceof DmcContainerIF)
+                ((DmcNamedObjectREF)interfaceRefV).setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
+            else
+                ((DmcNamedObjectREF)interfaceRefV).setObject(obj);
+        }
         
-    }
-
-    // org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:334)
-    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {
-    	   String rc = null;
-    	   int start = seppos.intValue();
-
-    	   if ( (start+1) >= input.length()){
-            throw (new DmcValueException("Missing value for field: " + fn + " in complex type: InterfaceReference"));
-        }
-
-    	   if (last){
-    	       rc = input.substring(start+1);
-    	   }
-    	   else{
-    	       int pos = -1;
-    	       if (start > 0)
-    		       pos = input.indexOf(" ", start+1);
-    	       else
-    		       pos = input.indexOf(" ");
-
-    	       if (pos == -1){
-    		       rc = input.substring(start+1);
-                seppos.set(input.length());
-                return(rc);
-            }
-
-    		   while(pos < (input.length()-1)){
-    		       if ( input.charAt(pos+1) == ' ')
-    		           pos++;
-    		       else
-    		           break;
-    		   }
-
-    	       rc = input.substring(start+1, pos).trim();
-
-    	       seppos.set(pos);
-        }
-
-        return(rc);
     }
 
 }

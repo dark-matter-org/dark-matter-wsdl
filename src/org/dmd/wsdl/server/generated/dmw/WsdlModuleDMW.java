@@ -42,7 +42,7 @@ import org.dmd.wsdl.shared.generated.types.WsdlModuleREF;                   // R
  */
 abstract public class WsdlModuleDMW extends WsdlDefinition implements DmcDefinitionIF, DmcNamedObjectIF, WsdlModuleScopedInterface {
 
-    // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:59)
+    // Generated from: org.dmd.util.codegen.MemberManager.getFormattedMembers(MemberManager.java:64)
     // Called from: org.dmd.dmg.generators.DMWGenerator.dumpAdditionalWrapperDefinitions(DMWGenerator.java:203)
     DmcDefinitionSet<WsdlDefinition>      WsdlDefinitionDefs     = new DmcDefinitionSet<WsdlDefinition>("WsdlModule-allDefinitions");         // All definitions associated with this module
     DmcDefinitionSet<WsdlBinding>         WsdlBindingDefs        = new DmcDefinitionSet<WsdlBinding>("WsdlModule-WsdlBindingDefs");           // All WsdlBinding definitions
