@@ -1,0 +1,1 @@
+A rapid thought experiment on how quickly a DSL can be created for WSDL
